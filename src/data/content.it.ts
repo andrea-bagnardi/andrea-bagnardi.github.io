@@ -164,9 +164,9 @@ export const content: SiteContent = {
         { label: 'Repository', href: 'https://github.com/andrea-bagnardi/project-work' },
       ],
       preview: {
-        // TODO: clip e screenshot ancora da preparare.
-        alt: 'Anteprima della dashboard di analisi',
-        poster: null,
+        alt: 'Dashboard di analisi: filtri per periodo, zona e categoria, indicatori chiave e andamento delle richieste nel tempo.',
+        poster: '/previews/business-intelligence.webp',
+        // TODO: clip ancora da registrare.
         video: null,
       },
     },
