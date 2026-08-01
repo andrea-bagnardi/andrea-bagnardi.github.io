@@ -15,7 +15,7 @@ const meta = content.sections.projects;
         const actions = project.actions.filter((action) => action.href !== null);
         return (
           <article class="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <div class="lg:sticky lg:top-12 lg:self-start">
+            <div class="lg:sticky lg:top-12 lg:self-start" data-reveal>
               <p class="font-mono text-mono uppercase tracking-widest text-accent">
                 {project.eyebrow}
               </p>
@@ -68,7 +68,7 @@ const meta = content.sections.projects;
               )}
             </div>
 
-            <div class="space-y-8">
+            <div class="space-y-8" data-reveal>
               <div
                 class="flex aspect-video w-full items-center justify-center rounded-md border border-border bg-surface"
                 aria-hidden="true"

@@ -7,13 +7,16 @@ const meta = content.sections.method;
 
 /**
  * Indigo marks the human decisions, neutral the agent output, amber the
- * verification gate. Amber stays on borders and markers only: on the light
+ * verification gate. Amber stays on the outline and the marker: on the light
  * background it clears the contrast threshold for shapes, not for small text.
+ *
+ * The outline is an SVG rect rather than a CSS border so the scroll animation
+ * can trace it. Undrawn it looks the same, so nothing depends on the script.
  */
-const roleStyles: Record<MethodRole, { box: string; label: string }> = {
-  human: { box: 'border-accent', label: 'text-accent' },
-  agent: { box: 'border-border border-dashed', label: 'text-text-muted' },
-  gate: { box: 'border-signal', label: 'text-text' },
+const roleStyles: Record<MethodRole, { outline: string; label: string }> = {
+  human: { outline: 'text-accent', label: 'text-accent' },
+  agent: { outline: 'text-border', label: 'text-text-muted' },
+  gate: { outline: 'text-signal', label: 'text-text' },
 };
 ---
 
@@ -23,7 +26,7 @@ const roleStyles: Record<MethodRole, { box: string; label: string }> = {
   <ol class="mt-12 grid gap-10 md:grid-cols-4 md:gap-6" data-diagram>
     {
       method.phases.map((phase, index) => (
-        <li class="relative">
+        <li class="relative" data-phase>
           {index > 0 && (
             <span
               class="absolute -top-10 left-6 h-10 w-px bg-border md:-left-6 md:top-6 md:h-px md:w-6"
@@ -32,26 +35,46 @@ const roleStyles: Record<MethodRole, { box: string; label: string }> = {
             />
           )}
 
-          <div
-            class={`flex items-center justify-between gap-3 rounded-md border p-4 ${roleStyles[phase.role].box}`}
-          >
+          <div class="relative flex items-center justify-between gap-3 p-4">
+            <svg
+              class={`absolute inset-0 h-full w-full ${roleStyles[phase.role].outline}`}
+              aria-hidden="true"
+              data-phase-outline
+            >
+              {/* Double width stroke, half of it clipped by the svg bounds:
+                  what is left is a hairline sitting exactly on the box edge,
+                  the same as the css border it replaces. */}
+              <rect
+                width="100%"
+                height="100%"
+                rx="8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+
             <span
               class={`font-mono text-mono uppercase tracking-widest ${roleStyles[phase.role].label}`}
+              data-phase-label
             >
               {phase.name}
             </span>
+
             {phase.role === 'gate' && (
               <span class="size-2 shrink-0 rounded-sm bg-signal" aria-hidden="true" />
             )}
           </div>
 
-          <p class="mt-4 text-small text-text-muted">{phase.text}</p>
+          <p class="mt-4 text-small text-text-muted" data-phase-text>
+            {phase.text}
+          </p>
         </li>
       ))
     }
   </ol>
 
-  <p class="mt-12 font-mono text-mono text-text-muted">{method.note}</p>
+  <p class="mt-12 font-mono text-mono text-text-muted" data-reveal>{method.note}</p>
 
-  <p class="mt-8 max-w-[70ch] text-small text-text-muted">{method.closing}</p>
+  <p class="mt-8 max-w-[70ch] text-small text-text-muted" data-reveal>{method.closing}</p>
 </section>

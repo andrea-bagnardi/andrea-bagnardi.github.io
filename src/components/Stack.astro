@@ -12,7 +12,7 @@ const meta = content.sections.stack;
   <div class="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
     {
       stack.groups.map((group) => (
-        <div data-field-boost>
+        <div data-field-boost data-reveal>
           <h3 class="font-mono text-mono uppercase tracking-widest text-text-muted">
             {group.title}
           </h3>
@@ -26,7 +26,7 @@ const meta = content.sections.stack;
     }
   </div>
 
-  <div class="mt-12 border-t border-border pt-8">
+  <div class="mt-12 border-t border-border pt-8" data-reveal>
     <h3 class="font-mono text-mono uppercase tracking-widest text-text-muted">
       {stack.personal.title}
     </h3>

@@ -9,4 +9,11 @@ if (canvas) {
   field = createDotField(canvas);
 }
 
-void playHeroIntro(field);
+void (async () => {
+  // Resolves once the sequence has been built, not once it has finished, so
+  // the scroll effects are wired up while the hero is still playing.
+  await playHeroIntro(field);
+
+  const { initScrollEffects } = await import('./scroll-effects');
+  await initScrollEffects();
+})();
