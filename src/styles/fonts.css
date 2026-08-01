@@ -1,0 +1,40 @@
+/*
+ * Self-hosted fonts. The woff2 files ship with the @fontsource packages; the
+ * face declarations are written by hand so that only the latin subset is
+ * referenced and no woff fallback is emitted.
+ */
+
+/* Display: variable, weight axis only (200-800). The other axes shipped by the
+   package (optical size, width) are unused and would cost ~35 KB each. */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2')
+    format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('@fontsource/inter-tight/files/inter-tight-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+}

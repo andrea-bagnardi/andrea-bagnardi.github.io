@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Development-only route: in a production build no path is generated, so the
+// page is absent from the published site.
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { path: undefined } }] : [];
+}
+
+const colors = [
+  { name: 'bg', className: 'bg-bg' },
+  { name: 'surface', className: 'bg-surface' },
+  { name: 'text', className: 'bg-text' },
+  { name: 'text-muted', className: 'bg-text-muted' },
+  { name: 'accent', className: 'bg-accent' },
+  { name: 'signal', className: 'bg-signal' },
+  { name: 'border', className: 'bg-border' },
+];
+
+const scale = [
+  { name: 'display', className: 'text-display font-display font-semibold' },
+  { name: 'h2', className: 'text-h2 font-display font-semibold' },
+  { name: 'h3', className: 'text-h3 font-display font-medium' },
+  { name: 'lead', className: 'text-lead' },
+  { name: 'body', className: 'text-body' },
+  { name: 'small', className: 'text-small' },
+  { name: 'mono', className: 'text-mono font-mono' },
+];
+---
+
+<BaseLayout title="Styleguide" description="Design tokens preview, development only.">
+  <main class="mx-auto max-w-content px-6 py-section">
+    <h1 class="text-h2 font-display font-semibold">Styleguide</h1>
+    <p class="mt-2 text-small text-text-muted">
+      Anteprima dei token di progetto. Pagina disponibile solo in sviluppo.
+    </p>
+
+    <section class="mt-16">
+      <h2 class="text-h3 font-display font-medium">Palette</h2>
+      <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {
+          colors.map((color) => (
+            <div class="rounded-md border border-border p-3">
+              <div class={`h-16 rounded-sm border border-border ${color.className}`} />
+              <p class="mt-2 font-mono text-mono">{color.name}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-h3 font-display font-medium">Scala tipografica</h2>
+      <div class="mt-6 space-y-6">
+        {
+          scale.map((step) => (
+            <div class="border-b border-border pb-6">
+              <p class="font-mono text-mono text-text-muted">{step.name}</p>
+              <p class={`mt-2 ${step.className}`}>Andrea Bagnardi</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-h3 font-display font-medium">Pesi</h2>
+      <div class="mt-6 space-y-2">
+        <p class="font-display font-medium text-h3">Display 500 — Bricolage Grotesque</p>
+        <p class="font-display font-semibold text-h3">Display 600 — Bricolage Grotesque</p>
+        <p class="font-normal">Sans 400 — Inter Tight</p>
+        <p class="font-medium">Sans 500 — Inter Tight</p>
+        <p class="font-mono text-mono">Mono 400 — JetBrains Mono 0123456789</p>
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-h3 font-display font-medium">Superfici e stati</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-md border border-border bg-surface p-6">
+          <h3 class="text-h3 font-display font-medium">Superficie</h3>
+          <p class="mt-2 text-text-muted">Bordo sottile a un pixel, raggio 8 px, nessuna ombra.</p>
+          <p class="mt-4 font-mono text-mono text-signal">100.000+</p>
+        </div>
+        <div class="rounded-md border border-border p-6">
+          <h3 class="text-h3 font-display font-medium">Interazione</h3>
+          <p class="mt-2 text-text-muted">Focus visibile con contorno in accento.</p>
+          <a class="mt-4 inline-block rounded-sm text-accent underline" href="#top">
+            Link di prova
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
