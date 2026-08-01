@@ -6,22 +6,75 @@ import '../styles/global.css';
 import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
 import bodyFont from '@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2?url';
 
+import { content } from '../data';
+
 interface Props {
   title: string;
   description: string;
+  /** Off for pages that exist only in development. */
+  indexable?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, indexable = true } = Astro.props;
+const { meta } = content;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og.png', Astro.site).href;
+
+const profiles = meta.profiles
+  .filter((profile) => profile.href !== null)
+  .map((profile) => profile.href as string);
+
+// The contact address is deliberately absent: it is assembled in the browser
+// at click time, and putting it here would undo that.
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: content.hero.name,
+  jobTitle: meta.jobTitle,
+  description: meta.description,
+  url: new URL('/', Astro.site).href,
+  image: ogImage,
+  knowsAbout: meta.knowsAbout,
+  ...(profiles.length > 0 ? { sameAs: profiles } : {}),
+};
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang={meta.locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {!indexable && <meta name="robots" content="noindex" />}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f6f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={content.hero.name} />
+    <meta property="og:locale" content={meta.ogLocale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={meta.ogImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={meta.ogImageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(person)} is:inline />
+
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
 

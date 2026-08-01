@@ -5,6 +5,26 @@ export const content: SiteContent = {
     title: 'Andrea Bagnardi — Software engineer',
     description:
       'Software engineer con dieci anni di esperienza, orientato a backend, dati e infrastruttura. Disponibilità immediata.',
+    locale: 'it',
+    ogLocale: 'it_IT',
+    jobTitle: 'Software engineer',
+    knowsAbout: [
+      'Backend',
+      'API',
+      'Python',
+      'Django',
+      'PostgreSQL',
+      'Docker',
+      'CI/CD',
+      'Data warehouse',
+      'ETL',
+    ],
+    profiles: [
+      { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
+      // TODO: URL del profilo, ancora da fornire.
+      { label: 'LinkedIn', href: null },
+    ],
+    ogImageAlt: 'Andrea Bagnardi — Costruisco backend che reggono centomila persone al giorno',
   },
 
   skipToContent: 'Vai al contenuto',
@@ -121,8 +141,10 @@ export const content: SiteContent = {
         { label: 'Vedi il codice', href: null },
       ],
       preview: {
+        // TODO: clip e screenshot ancora da preparare.
         alt: 'Anteprima di GuitarPath',
-        src: null,
+        poster: null,
+        video: null,
       },
     },
     {
@@ -142,8 +164,10 @@ export const content: SiteContent = {
         { label: 'Repository', href: 'https://github.com/andrea-bagnardi/project-work' },
       ],
       preview: {
+        // TODO: clip e screenshot ancora da preparare.
         alt: 'Anteprima della dashboard di analisi',
-        src: null,
+        poster: null,
+        video: null,
       },
     },
   ],

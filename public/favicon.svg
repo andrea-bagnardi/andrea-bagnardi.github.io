@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .dot { fill: #5a6470; opacity: 0.55; }
+    .lit { fill: #4c4fe0; }
+    @media (prefers-color-scheme: dark) {
+      .dot { fill: #98a2ae; }
+      .lit { fill: #7b7ef0; }
+    }
+  </style>
+  <g class="dot">
+    <circle cx="6" cy="6" r="1.6" />
+    <circle cx="14" cy="6" r="1.6" />
+    <circle cx="22" cy="6" r="1.6" />
+    <circle cx="6" cy="14" r="1.6" />
+    <circle cx="14" cy="14" r="1.6" />
+    <circle cx="22" cy="14" r="1.6" />
+    <circle cx="6" cy="22" r="1.6" />
+    <circle cx="22" cy="22" r="1.6" />
+  </g>
+  <circle class="lit" cx="14" cy="22" r="3.4" />
+</svg>

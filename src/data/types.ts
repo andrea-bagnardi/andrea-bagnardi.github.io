@@ -61,8 +61,10 @@ export interface Project {
   actions: Action[];
   preview: {
     alt: string;
-    /** Still missing while the clips are being recorded. */
-    src: string | null;
+    /** Still image, and the frame the clip shows before it plays. */
+    poster: string | null;
+    /** Short silent webm, loaded only as the section approaches. */
+    video: string | null;
   };
 }
 
@@ -107,6 +109,16 @@ export interface SiteContent {
   meta: {
     title: string;
     description: string;
+    /** BCP 47 tag for the html lang attribute and og:locale. */
+    locale: string;
+    ogLocale: string;
+    /** Fed to schema.org/Person. The address is deliberately left out. */
+    jobTitle: string;
+    knowsAbout: string[];
+    /** Public profiles, for sameAs. Entries without a url are dropped. */
+    profiles: Action[];
+    /** Alt text for the generated share image. */
+    ogImageAlt: string;
   };
   sections: Record<'expertise' | 'projects' | 'stack' | 'method' | 'contact', SectionMeta>;
   hero: Hero;

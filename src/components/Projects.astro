@@ -69,12 +69,39 @@ const meta = content.sections.projects;
             </div>
 
             <div class="space-y-8" data-reveal>
-              <div
-                class="flex aspect-video w-full items-center justify-center rounded-md border border-border bg-surface"
-                aria-hidden="true"
-              >
-                <span class="font-mono text-mono text-text-muted">anteprima in arrivo</span>
-              </div>
+              {/* Explicit dimensions on every branch, so swapping a placeholder
+                   for real artwork never moves the layout. */}
+              {project.preview.video ? (
+                <video
+                  class="aspect-video w-full rounded-md border border-border bg-surface"
+                  width="1280"
+                  height="720"
+                  poster={project.preview.poster ?? undefined}
+                  data-src={project.preview.video}
+                  preload="none"
+                  muted
+                  loop
+                  playsinline
+                  aria-label={project.preview.alt}
+                />
+              ) : project.preview.poster ? (
+                <img
+                  class="aspect-video w-full rounded-md border border-border bg-surface"
+                  src={project.preview.poster}
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                  alt={project.preview.alt}
+                />
+              ) : (
+                <div
+                  class="flex aspect-video w-full items-center justify-center rounded-md border border-border bg-surface"
+                  aria-hidden="true"
+                >
+                  <span class="font-mono text-mono text-text-muted">anteprima in arrivo</span>
+                </div>
+              )}
 
               <dl class="grid grid-cols-3 gap-6">
                 {project.stats.map((stat) => (
