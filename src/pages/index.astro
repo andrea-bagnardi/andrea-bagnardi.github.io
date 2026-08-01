@@ -1,7 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Expertise from '../components/Expertise.astro';
+import Projects from '../components/Projects.astro';
+import Stack from '../components/Stack.astro';
+import Method from '../components/Method.astro';
+import Contact from '../components/Contact.astro';
+import { content } from '../data';
 ---
 
-<BaseLayout title="Andrea Bagnardi" description="Andrea Bagnardi, software engineer.">
-  <h1>Andrea Bagnardi</h1>
+<BaseLayout title={content.meta.title} description={content.meta.description}>
+  <a
+    class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded-sm focus:border focus:border-border focus:bg-surface focus:px-4 focus:py-2"
+    href="#main"
+  >
+    {content.skipToContent}
+  </a>
+
+  <main id="main">
+    <Hero />
+    <Expertise />
+    <Projects />
+    <Stack />
+    <Method />
+    <Contact />
+  </main>
 </BaseLayout>

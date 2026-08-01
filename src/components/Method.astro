@@ -1,0 +1,57 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { content, type MethodRole } from '../data';
+
+const { method } = content;
+const meta = content.sections.method;
+
+/**
+ * Indigo marks the human decisions, neutral the agent output, amber the
+ * verification gate. Amber stays on borders and markers only: on the light
+ * background it clears the contrast threshold for shapes, not for small text.
+ */
+const roleStyles: Record<MethodRole, { box: string; label: string }> = {
+  human: { box: 'border-accent', label: 'text-accent' },
+  agent: { box: 'border-border border-dashed', label: 'text-text-muted' },
+  gate: { box: 'border-signal', label: 'text-text' },
+};
+---
+
+<section id={meta.id} class="mx-auto max-w-content px-6 py-section">
+  <SectionHeading meta={meta} />
+
+  <ol class="mt-12 grid gap-10 md:grid-cols-4 md:gap-6" data-diagram>
+    {
+      method.phases.map((phase, index) => (
+        <li class="relative">
+          {index > 0 && (
+            <span
+              class="absolute -top-10 left-6 h-10 w-px bg-border md:-left-6 md:top-6 md:h-px md:w-6"
+              data-connector
+              aria-hidden="true"
+            />
+          )}
+
+          <div
+            class={`flex items-center justify-between gap-3 rounded-md border p-4 ${roleStyles[phase.role].box}`}
+          >
+            <span
+              class={`font-mono text-mono uppercase tracking-widest ${roleStyles[phase.role].label}`}
+            >
+              {phase.name}
+            </span>
+            {phase.role === 'gate' && (
+              <span class="size-2 shrink-0 rounded-sm bg-signal" aria-hidden="true" />
+            )}
+          </div>
+
+          <p class="mt-4 text-small text-text-muted">{phase.text}</p>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="mt-12 font-mono text-mono text-text-muted">{method.note}</p>
+
+  <p class="mt-8 max-w-[70ch] text-small text-text-muted">{method.closing}</p>
+</section>

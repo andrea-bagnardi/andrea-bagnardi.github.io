@@ -1,0 +1,18 @@
+---
+import { content } from '../data';
+
+const { hero } = content;
+---
+
+<section
+  id="top"
+  class="mx-auto flex min-h-[80svh] max-w-content flex-col justify-center px-6 py-section"
+>
+  <h1 class="text-display font-display font-semibold">{hero.name}</h1>
+
+  <p class="mt-8 max-w-[22ch] text-h2 font-normal">{hero.positioning}</p>
+
+  <div class="mt-10 h-px w-24 bg-accent" aria-hidden="true"></div>
+
+  <p class="mt-10 max-w-[58ch] text-lead text-text-muted">{hero.context}</p>
+</section>
