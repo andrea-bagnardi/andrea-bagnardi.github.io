@@ -6,13 +6,32 @@ const { hero } = content;
 
 <section
   id="top"
-  class="mx-auto flex min-h-[80svh] max-w-content flex-col justify-center px-6 py-section"
+  class="relative mx-auto flex min-h-[80svh] max-w-content flex-col justify-center px-6 py-section"
 >
-  <h1 class="text-display font-display font-semibold">{hero.name}</h1>
+  <div
+    class="pointer-events-none absolute inset-x-6 top-1/2 -translate-y-1/2 font-mono text-mono"
+    data-trace
+    aria-hidden="true"
+  >
+    {
+      hero.trace.map((line) => (
+        <p class="flex gap-4 py-1 sm:gap-6" data-trace-line>
+          <span class="w-12 shrink-0 text-text-muted">{line.method}</span>
+          <span class="min-w-0 flex-1 truncate">{line.path}</span>
+          <span class="shrink-0 text-signal">{line.status}</span>
+          <span class="w-16 shrink-0 text-right text-text-muted">{line.time}</span>
+        </p>
+      ))
+    }
+  </div>
 
-  <p class="mt-8 max-w-[22ch] text-h2 font-normal">{hero.positioning}</p>
+  <h1 class="text-display font-display font-semibold">
+    <span class="block" data-intro-mask>{hero.name}</span>
+  </h1>
 
-  <div class="mt-10 h-px w-24 bg-accent" aria-hidden="true"></div>
+  <p class="mt-8 max-w-[22ch] text-h2 font-normal" data-intro-fade>{hero.positioning}</p>
 
-  <p class="mt-10 max-w-[58ch] text-lead text-text-muted">{hero.context}</p>
+  <div class="mt-10 h-px w-24 bg-accent" data-intro-fade aria-hidden="true"></div>
+
+  <p class="mt-10 max-w-[58ch] text-lead text-text-muted" data-intro-fade>{hero.context}</p>
 </section>

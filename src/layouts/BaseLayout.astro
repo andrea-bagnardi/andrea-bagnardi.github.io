@@ -24,6 +24,28 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+
+    {
+      /* Decides before the first paint whether the hero sequence will play, so
+        the hero is never shown and then hidden again. Everything else waits. */
+    }
+    <script is:inline>
+      (() => {
+        try {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if (sessionStorage.getItem('hero-intro') === 'done') return;
+          const root = document.documentElement;
+          root.dataset.intro = 'pending';
+          // If the bundle never arrives, nothing would ever clear the marker
+          // and the hero would stay hidden. Well past the longest run.
+          setTimeout(function () {
+            if (root.dataset.intro === 'pending') root.dataset.intro = 'done';
+          }, 5000);
+        } catch {
+          // Storage can be unavailable; the hero then simply shows itself.
+        }
+      })();
+    </script>
   </head>
   <body>
     <slot />

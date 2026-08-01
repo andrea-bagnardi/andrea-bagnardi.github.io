@@ -26,3 +26,36 @@
     outline-offset: 2px;
   }
 }
+
+/*
+ * Starting state of the hero sequence. It applies only while the inline head
+ * script has marked the document, which happens when the sequence is actually
+ * going to play: without JavaScript, with reduced motion, or on a second visit
+ * within the session, the hero renders as authored.
+ */
+@layer base {
+  [data-trace] {
+    display: none;
+  }
+
+  [data-intro='pending'] [data-trace] {
+    display: block;
+  }
+
+  [data-intro='pending'] [data-trace-line] {
+    opacity: 0;
+  }
+
+  [data-intro='pending'] h1 {
+    overflow: hidden;
+  }
+
+  [data-intro='pending'] [data-intro-mask] {
+    transform: translateY(110%);
+  }
+
+  [data-intro='pending'] [data-intro-fade] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}

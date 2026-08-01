@@ -48,6 +48,14 @@ export const content: SiteContent = {
     positioning: 'Costruisco backend che reggono centomila persone al giorno',
     context:
       'Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura. Disponibilità immediata.',
+    trace: [
+      { method: 'GET', path: '/api/v1/sessions', status: '200', time: '42 ms' },
+      { method: 'POST', path: '/api/v1/auth/token', status: '201', time: '88 ms' },
+      { method: 'GET', path: '/api/v1/users/me', status: '200', time: '17 ms' },
+      { method: 'POST', path: '/api/v1/events', status: '202', time: '23 ms' },
+      { method: 'GET', path: '/api/v1/feed?page=2', status: '200', time: '61 ms' },
+      { method: 'GET', path: '/healthz', status: '200', time: '3 ms' },
+    ],
   },
 
   expertise: {

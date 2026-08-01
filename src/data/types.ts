@@ -3,10 +3,19 @@
  * adding a sibling of content.it.ts, not touching the components.
  */
 
+/** One line of the hero trace: plausible, and deliberately anonymous. */
+export interface TraceLine {
+  method: string;
+  path: string;
+  status: string;
+  time: string;
+}
+
 export interface Hero {
   name: string;
   positioning: string;
   context: string;
+  trace: TraceLine[];
 }
 
 /** A number the scroll animation counts up to. Rendered as `display` without JS. */
