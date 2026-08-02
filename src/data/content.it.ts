@@ -2,7 +2,7 @@ import type { SiteContent } from './types';
 
 export const content: SiteContent = {
   meta: {
-    title: 'Andrea Bagnardi — Software engineer',
+    title: 'Andrea Bagnardi · Software engineer',
     description:
       'Software engineer con più di dieci anni di esperienza, orientato a backend, dati e infrastruttura.',
     locale: 'it',
@@ -103,7 +103,7 @@ export const content: SiteContent = {
       },
       {
         title: 'Dati e business intelligence',
-        claim: 'Trasformo dati grezzi in decisioni.',
+        claim: 'Prendo dati sparsi in gestionali diversi e li rendo interrogabili.',
         evidence:
           'Pipeline ETL in Python e Pandas, data warehouse a schema a stella con storicizzazione SCD2, dashboard interattiva per l’analisi. Codice pubblico e demo online.',
         tags: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'],
@@ -124,7 +124,7 @@ export const content: SiteContent = {
       decisions: [
         'Due modelli distinti con ruoli separati: uno genera i percorsi e le tablature, l’altro analizza l’audio.',
         'Elaborazione audio nel browser, senza passare dal server.',
-        'Suite di test estesa a copertura del dominio musicale.',
+        'Suite di test estesa.',
       ],
       method:
         'Realizzato interamente con Claude Code. Il codice è generato dall’agente, l’architettura, i vincoli e il controllo qualità sono miei: TypeScript in modalità strict, 440 test automatici, revisione di ogni pull request.',
@@ -149,7 +149,7 @@ export const content: SiteContent = {
       problem:
         'Nel settore della formazione i dati operativi restano sparsi tra gestionali diversi e non diventano mai informazione utile per decidere.',
       solution:
-        'Pipeline ETL che raccoglie e normalizza i dati, data warehouse a schema a stella con storicizzazione SCD2, dashboard interattiva.',
+        'Raccoglie i dati dai gestionali, li normalizza e li storicizza, poi li espone in una dashboard.',
       decisions: [
         'Schema a stella invece che normalizzato: le interrogazioni analitiche attraversano meno join e la dashboard resta reattiva.',
         'Storicizzazione SCD2 sulle dimensioni: un’analisi sul passato non viene riscritta dai dati di oggi.',
