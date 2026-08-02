@@ -11,8 +11,6 @@ const actions = contact.actions.filter((action) => action.href !== null);
 <section id={meta.id} class="mx-auto max-w-content px-6 py-section">
   <SectionHeading meta={meta} />
 
-  <p class="mt-8 max-w-[50ch] text-lead" data-reveal>{contact.opening}</p>
-
   <ul class="mt-10 flex flex-wrap gap-3" data-reveal>
     {
       actions.map((action) => (

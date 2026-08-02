@@ -191,7 +191,7 @@ Il soggetto delle frasi è sempre la persona, mai lo strumento. Da non usare in 
 
 ### 6.6 Dove trovarmi
 
-- Riga di apertura: dice cosa si trova dietro ciascun link, non se chi scrive è disponibile
+- Nessuna riga di apertura: la sezione è il titolo e i due link, e nient'altro
 - Due azioni: LinkedIn, GitHub
 - Nessun indirizzo email in nessuna forma, nemmeno offuscato o composto da JavaScript
 - Nessun CV scaricabile

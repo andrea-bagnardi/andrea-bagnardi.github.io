@@ -270,7 +270,6 @@ export const content: SiteContent = {
   },
 
   contact: {
-    opening: 'Il codice pubblico è su GitHub, il percorso professionale su LinkedIn.',
     actions: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
