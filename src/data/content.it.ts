@@ -4,7 +4,7 @@ export const content: SiteContent = {
   meta: {
     title: 'Andrea Bagnardi — Software engineer',
     description:
-      'Software engineer con dieci anni di esperienza, orientato a backend, dati e infrastruttura.',
+      'Software engineer con più di dieci anni di esperienza, orientato a backend, dati e infrastruttura.',
     locale: 'it',
     ogLocale: 'it_IT',
     jobTitle: 'Software engineer',
@@ -66,7 +66,7 @@ export const content: SiteContent = {
     name: 'Andrea Bagnardi',
     positioning: 'Costruisco backend che reggono centomila persone al giorno',
     context:
-      'Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura.',
+      'Più di dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura.',
     trace: [
       { method: 'GET', path: '/api/v1/sessions', status: '200', time: '42 ms' },
       { method: 'POST', path: '/api/v1/auth/token', status: '201', time: '88 ms' },
@@ -91,7 +91,7 @@ export const content: SiteContent = {
         title: 'Infrastruttura e delivery',
         claim: 'Gestisco l’infrastruttura e il percorso che porta il codice in produzione.',
         evidence:
-          'Quattro anni di responsabilità diretta su server e ambienti, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.',
+          'Più di dieci anni di responsabilità diretta su server e ambienti, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.',
         tags: ['Docker', 'GitHub Actions', 'Linux', 'AWS'],
       },
       {

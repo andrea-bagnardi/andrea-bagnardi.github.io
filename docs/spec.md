@@ -7,7 +7,7 @@ Ultimo aggiornamento: 1 agosto 2026.
 
 ## 1. Obiettivo
 
-Sito vetrina personale di un software engineer con dieci anni di esperienza, orientato al backend. È un sito di presentazione: non dichiara disponibilità e non raccoglie offerte di lavoro.
+Sito vetrina personale di un software engineer con più di dieci anni di esperienza, orientato al backend. È un sito di presentazione: non dichiara disponibilità e non raccoglie offerte di lavoro.
 
 Il sito viene linkato da LinkedIn, dal CV e dai social. Chi lo apre è quasi sempre un recruiter o un CTO, spesso da mobile, e dedica pochi secondi alla prima impressione.
 
@@ -104,9 +104,9 @@ Contenuti:
 - Nome: **Andrea Bagnardi**
 - Riga di posizionamento, da scegliere tra queste tre alternative:
   1. "Costruisco backend che reggono centomila persone al giorno"
-  2. "Backend, dati e infrastruttura. Dieci anni a tenere in piedi cose che vanno in produzione"
+  2. "Backend, dati e infrastruttura. Più di dieci anni a tenere in piedi cose che vanno in produzione"
   3. "Software engineer. Progetto backend, li porto in produzione e li mantengo vivi"
-- Riga di contesto sotto: "Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura."
+- Riga di contesto sotto: "Più di dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura."
 
 La riga di posizionamento deve essere specifica, non un titolo generico: è quella che decide se chi arriva continua a scorrere.
 
@@ -121,7 +121,7 @@ Progetto e mantengo backend che reggono traffico reale. Ho disegnato da zero l'a
 Tag: Python, Django, REST, PostgreSQL
 
 **Infrastruttura e delivery**
-Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Quattro anni di responsabilità diretta su server e ambienti, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.
+Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Più di dieci anni di responsabilità diretta su server e ambienti, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.
 Tag: Docker, GitHub Actions, Linux, AWS
 
 **Full stack e prodotto**
