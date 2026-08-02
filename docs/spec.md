@@ -121,7 +121,7 @@ Progetto e mantengo backend che reggono traffico reale. Ho disegnato da zero l'a
 Tag: Python, Django, REST, PostgreSQL
 
 **Infrastruttura e delivery**
-Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Più di dieci anni di responsabilità diretta su server e ambienti, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.
+Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Responsabilità diretta su server e ambienti da tutta la carriera, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.
 Tag: Docker, GitHub Actions, Linux, AWS
 
 **Full stack e prodotto**
