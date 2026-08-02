@@ -134,15 +134,14 @@ export const content: SiteContent = {
         { value: 'Live', label: 'in produzione' },
       ],
       actions: [
-        // TODO: URL della demo, ancora da fornire.
-        { label: 'Prova la demo', href: null },
-        // TODO: solo se il repository viene reso pubblico.
+        { label: 'Prova la demo', href: 'https://guitarpath.vercel.app/' },
+        // Il repository e' privato: l'azione resta fuori dalla pagina.
         { label: 'Vedi il codice', href: null },
       ],
       preview: {
-        // TODO: clip e screenshot ancora da preparare.
-        alt: 'Anteprima di GuitarPath',
-        poster: null,
+        alt: 'Home di GuitarPath: il titolo Suona quello che ami, la descrizione del coach e il pulsante per iniziare.',
+        poster: '/previews/guitarpath.webp',
+        // TODO: clip ancora da registrare.
         video: null,
       },
     },
@@ -178,10 +177,20 @@ export const content: SiteContent = {
       { title: 'Dati', items: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'] },
       { title: 'Infrastruttura', items: ['Docker', 'GitHub Actions', 'Linux', 'AWS'] },
     ],
-    // TODO: da confermare, dedotto dalle decisioni tecniche descritte nella spec.
     personal: {
       title: 'Progetto personale',
-      items: ['TypeScript', 'Claude Code', 'Audio nel browser', 'Test automatici'],
+      items: [
+        'Next.js',
+        'TypeScript',
+        'Prisma',
+        'PostgreSQL',
+        'Clerk',
+        'Tailwind',
+        'alphaTab',
+        'Tone.js',
+        'Vitest',
+        'Vercel',
+      ],
     },
   },
 
