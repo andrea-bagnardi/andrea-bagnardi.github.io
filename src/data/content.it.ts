@@ -15,6 +15,7 @@ export const content: SiteContent = {
       'Django',
       'PostgreSQL',
       'Docker',
+      'Google Cloud',
       'CI/CD',
       'Data warehouse',
       'ETL',
@@ -100,7 +101,7 @@ export const content: SiteContent = {
         claim: 'Gestisco l’infrastruttura e il percorso che porta il codice in produzione.',
         evidence:
           'Responsabilità diretta su server e ambienti da tutta la carriera, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.',
-        tags: ['Docker', 'GitHub Actions', 'Linux', 'AWS'],
+        tags: ['Docker', 'GitHub Actions', 'Linux', 'Google Cloud'],
       },
       {
         title: 'Full stack e prodotto',
@@ -189,10 +190,34 @@ export const content: SiteContent = {
 
   stack: {
     groups: [
-      { title: 'Backend', items: ['Python', 'Django', 'REST', 'PostgreSQL'] },
+      {
+        title: 'Backend',
+        items: [
+          'Python',
+          'Django',
+          'Django REST Framework',
+          'REST',
+          'Celery',
+          'PostgreSQL',
+          'Redis',
+          'Firebase',
+          'gunicorn',
+        ],
+      },
       { title: 'Frontend', items: ['Angular', 'Ionic', 'TypeScript', 'Tailwind'] },
       { title: 'Dati', items: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'] },
-      { title: 'Infrastruttura', items: ['Docker', 'GitHub Actions', 'Linux', 'AWS'] },
+      {
+        title: 'Infrastruttura',
+        items: [
+          'Docker',
+          'Docker Compose',
+          'GitHub Actions',
+          'Linux',
+          'nginx',
+          'Google Cloud',
+          'Sentry',
+        ],
+      },
     ],
   },
 

@@ -158,11 +158,17 @@ Nessun riferimento all'origine accademica del progetto.
 - Numeri: nove settimane dallo zero alla demo online
 - Azioni: dashboard live (`https://pw-bagnardi-andrea.streamlit.app/`), repository (`https://github.com/andrea-bagnardi/project-work`)
 
+Ogni progetto elenca le proprie tecnologie accanto ai numeri, nella colonna dell'anteprima.
+
 Anteprime: clip video brevi senza audio, 10-15 secondi, in `webm` sotto i 2 MB, caricate solo quando la sezione si avvicina alla viewport, con immagine statica come fallback. Se le clip non sono pronte, partire con screenshot e sostituirli dopo.
 
 ### 6.4 Stack
 
-Quattro colonne di testo raggruppate per area: backend, frontend, dati, infrastruttura. Una parola per voce, nessun logo, nessuna barra di percentuale. Riga finale separata con le tecnologie del progetto personale.
+Quattro colonne di testo raggruppate per area: backend, frontend, dati, infrastruttura. Una parola per voce, nessun logo, nessuna barra di percentuale.
+
+La sezione è l'inventario completo degli strumenti di lavoro, non un riassunto: i tag sulle card delle competenze ne mostrano le voci più rappresentative, qui c'è il resto. Non deve limitarsi a ripetere quei tag.
+
+Le tecnologie dei progetti non stanno qui: ogni progetto elenca le proprie nella sezione 6.3. Gli strumenti che usa chiunque, dal controllo di versione al tracker dei ticket, restano fuori.
 
 Il PHP non compare.
 
