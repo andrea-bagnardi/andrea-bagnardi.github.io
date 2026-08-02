@@ -23,7 +23,7 @@ export const content: SiteContent = {
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
     ],
-    ogImageAlt: 'Andrea Bagnardi — Costruisco backend che reggono centomila persone al giorno',
+    ogImageAlt: 'Andrea Bagnardi · Costruisco backend che reggono centomila persone al giorno',
   },
 
   notFound: {
