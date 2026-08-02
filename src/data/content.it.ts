@@ -156,7 +156,7 @@ export const content: SiteContent = {
       ],
       actions: [
         { label: 'Prova la demo', href: 'https://guitarpath.vercel.app/' },
-        // Il repository e' privato: l'azione resta fuori dalla pagina.
+        // The repository is private, so this action stays off the page.
         { label: 'Vedi il codice', href: null },
       ],
       preview: {

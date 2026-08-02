@@ -28,8 +28,8 @@ const profiles = meta.profiles
   .filter((profile) => profile.href !== null)
   .map((profile) => profile.href as string);
 
-// The contact address is deliberately absent: it is assembled in the browser
-// at click time, and putting it here would undo that.
+// No email address here, because there is none anywhere on the site: the brief
+// rules it out in every form. Only the public profiles go in.
 const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
