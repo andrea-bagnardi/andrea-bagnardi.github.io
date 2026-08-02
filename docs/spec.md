@@ -185,7 +185,7 @@ Quattro righe di testo, una per fase:
 - L'agente scrive il codice, io leggo ogni diff.
 - I test automatici sono la rete di sicurezza sul codice che non ho battuto a mano, e la CI blocca tutto ciò che non passa.
 
-Riga di chiusura: le stesse pipeline CI le ho costruite in azienda per fare da controllo qualità sulle pull request del team, e i test automatici li ho introdotti da quando la generazione assistita ha reso veloce scriverli.
+Nessuna riga di chiusura: la sezione finisce sulla nota. Quella che c'era ripeteva quasi parola per parola la card Infrastruttura del §6.2.
 
 Il soggetto delle frasi è sempre la persona, mai lo strumento. Da non usare in nessun punto del sito: l'etichetta "AI engineer".
 

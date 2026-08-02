@@ -267,8 +267,6 @@ export const content: SiteContent = {
       },
     ],
     note: 'Se la verifica fallisce, il problema è nella specifica.',
-    closing:
-      'Le stesse pipeline CI le ho costruite in azienda per fare da controllo qualità sulle pull request del team, e i test automatici li ho introdotti da quando la generazione assistita ha reso veloce scriverli.',
   },
 
   contact: {

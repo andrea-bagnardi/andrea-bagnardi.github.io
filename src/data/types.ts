@@ -90,7 +90,6 @@ export interface MethodPhase {
 export interface Method {
   phases: MethodPhase[];
   note: string;
-  closing: string;
 }
 
 export interface Contact {
