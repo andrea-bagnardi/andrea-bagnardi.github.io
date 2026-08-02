@@ -210,7 +210,19 @@ export const content: SiteContent = {
         title: 'Frontend',
         items: ['Angular', 'Ionic', 'Capacitor', 'Cordova', 'TypeScript', 'RxJS', 'Tailwind'],
       },
-      { title: 'Dati', items: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'] },
+      {
+        title: 'Dati',
+        items: [
+          'SQL',
+          'Firebase Analytics',
+          'Reportistica',
+          'Celery Beat',
+          'Pandas',
+          'ETL',
+          'Data warehouse',
+          'Streamlit',
+        ],
+      },
       {
         title: 'Infrastruttura',
         items: [
