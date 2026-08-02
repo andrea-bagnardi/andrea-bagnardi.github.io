@@ -1,7 +1,7 @@
 # Specifica — sito portfolio personale
 
 Documento di lavoro da fornire a Claude Code come brief iniziale del progetto.
-Ultimo aggiornamento: 1 agosto 2026.
+Ultimo aggiornamento: 2 agosto 2026.
 
 ---
 
@@ -72,6 +72,8 @@ L'estetica di riferimento è quella di un pannello di monitoraggio: sobria, dens
 | Segnale (solo numeri e stati) | `#B4740C` | `#E0A03A` |
 
 Due accenti in tutto. L'accento indaco è per elementi interattivi e per il campo di punti attivo; il segnale ambra è riservato ai numeri chiave e agli stati nel trace. Il tema segue `prefers-color-scheme`, con eventuale interruttore manuale come extra opzionale.
+
+Il contatore sulla prima card delle competenze fa eccezione e resta in colore testo: sta dentro un paragrafo da 14 px, e a quella misura l'ambra sul fondo chiaro non arriva al contrasto AA. Il monospazio basta a farlo leggere come numero.
 
 Da evitare esplicitamente: fondo crema caldo con serif ad alto contrasto e accento terracotta; fondo quasi nero con accento verde acido; layout tipo giornale con filetti sottili e colonne dense. Sono i tre look che ricorrono ovunque e leggono come default, non come scelta.
 
@@ -174,7 +176,7 @@ Il PHP non compare.
 
 ### 6.5 Metodo di lavoro
 
-Diagramma orizzontale in quattro fasi che si disegna quando entra nella viewport: specifica → vincoli → generazione → verifica. Le prime due fasi in accento indaco (decisioni umane), la terza in un colore distinto (output dell'agente), la quarta come cancello di verifica. Sotto, una nota: se la verifica fallisce, il problema è nella specifica.
+Diagramma orizzontale in quattro fasi che si disegna quando entra nella viewport: specifica → vincoli → generazione → verifica. Le prime due fasi in accento indaco (decisioni umane), la terza in neutro (output dell'agente), la quarta in ambra come cancello di verifica. Un terzo colore romperebbe il vincolo dei due accenti del §5: la generazione si distingue restando l'unica fase senza colore. Sotto, una nota: se la verifica fallisce, il problema è nella specifica.
 
 Quattro righe di testo, una per fase:
 
