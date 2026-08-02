@@ -4,7 +4,7 @@ export const content: SiteContent = {
   meta: {
     title: 'Andrea Bagnardi — Software engineer',
     description:
-      'Software engineer con dieci anni di esperienza, orientato a backend, dati e infrastruttura. Disponibilità immediata.',
+      'Software engineer con dieci anni di esperienza, orientato a backend, dati e infrastruttura.',
     locale: 'it',
     ogLocale: 'it_IT',
     jobTitle: 'Software engineer',
@@ -55,10 +55,10 @@ export const content: SiteContent = {
       title: 'Metodo di lavoro',
     },
     contact: {
-      id: 'contatti',
+      id: 'profili',
       index: '05',
-      label: 'Contatti',
-      title: 'Contatti',
+      label: 'Profili',
+      title: 'Dove trovarmi',
     },
   },
 
@@ -66,7 +66,7 @@ export const content: SiteContent = {
     name: 'Andrea Bagnardi',
     positioning: 'Costruisco backend che reggono centomila persone al giorno',
     context:
-      'Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura. Disponibilità immediata.',
+      'Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura.',
     trace: [
       { method: 'GET', path: '/api/v1/sessions', status: '200', time: '42 ms' },
       { method: 'POST', path: '/api/v1/auth/token', status: '201', time: '88 ms' },
@@ -223,15 +223,10 @@ export const content: SiteContent = {
   },
 
   contact: {
-    opening:
-      'Disponibile per nuove opportunità come software engineer, con disponibilità immediata.',
+    opening: 'Il codice pubblico è su GitHub, il percorso professionale su LinkedIn.',
     actions: [
-      // TODO: PDF ancora da preparare, i bottoni restano fuori dalla pagina.
-      { label: 'CV italiano', href: null },
-      { label: 'CV English', href: null },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
     ],
-    emailLabel: 'Scrivimi',
   },
 };

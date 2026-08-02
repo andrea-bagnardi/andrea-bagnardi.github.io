@@ -6,8 +6,6 @@ const { contact } = content;
 const meta = content.sections.contact;
 
 const actions = contact.actions.filter((action) => action.href !== null);
-const actionClass =
-  'inline-block rounded-sm border border-border px-4 py-2 font-medium text-accent hover:border-accent';
 ---
 
 <section id={meta.id} class="mx-auto max-w-content px-6 py-section">
@@ -19,17 +17,15 @@ const actionClass =
     {
       actions.map((action) => (
         <li>
-          <a class={actionClass} href={action.href}>
+          <a
+            class="inline-block rounded-sm border border-border px-4 py-2 font-medium text-accent hover:border-accent"
+            href={action.href}
+          >
             {action.label}
           </a>
         </li>
       ))
     }
-    <li>
-      <button class={actionClass} type="button" data-email hidden>
-        {contact.emailLabel}
-      </button>
-    </li>
   </ul>
 
   <p class="mt-16">
@@ -38,18 +34,3 @@ const actionClass =
     </a>
   </p>
 </section>
-
-<script>
-  import { encodedEmail } from '../data/email';
-
-  // The address is decoded at click time: it never reaches the HTML in readable
-  // form. Without JavaScript the button stays hidden and the other links remain.
-  const button = document.querySelector<HTMLButtonElement>('[data-email]');
-
-  if (button) {
-    button.hidden = false;
-    button.addEventListener('click', () => {
-      window.location.href = `mailto:${atob(encodedEmail)}`;
-    });
-  }
-</script>

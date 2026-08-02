@@ -95,7 +95,6 @@ export interface Method {
 export interface Contact {
   opening: string;
   actions: Action[];
-  emailLabel: string;
 }
 
 export interface SectionMeta {
