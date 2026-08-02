@@ -7,8 +7,9 @@ Va tenuto corto e potato quando le voci si chiudono.
 ## Stato delle fasi
 
 Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
-Lighthouse mobile all'ultima misurazione: performance 97, accessibilità 100,
-best practices 100, SEO 100. Peso trasferito 165 KB, 262 KB non compressi.
+Lighthouse mobile, misurato il 2 agosto 2026 sul sito pubblicato: performance
+97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 204 KiB su
+13 richieste, anteprima di GuitarPath compresa.
 
 **Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
 è aperta: numero 45788, aggiunge `domains/andrea-bagnardi.json` con un CNAME
@@ -29,20 +30,13 @@ inizia a reindirizzare verso un dominio che non esiste ancora.
 pronta: `src/data/content.it.ts` è un oggetto tipato, aggiungere una lingua
 significa un file fratello e una riga in `src/data/index.ts`. Da tradurre
 anche la pagina 404. Da decidere dove mettere il selettore di lingua, visto
-che la spec vuole navigazione minima.
+che la spec vuole navigazione minima. Si parte quando lo dice Andrea.
 
 ## Domande in attesa di risposta
 
-- **Strumento di visualizzazione dati.** Confermato l'uso di "Looker Studio o
-  simili", ma non quale. Serve il nome esatto prima di aggiungerlo alla
-  colonna Dati: un prodotto sbagliato lì non regge a una domanda.
-- **Google Analytics.** Nella colonna Dati c'è `Firebase Analytics`, che è
-  confermato. Google Analytics no: da chiedere se usato.
-- **BigQuery.** Firebase Analytics ha un export nativo verso BigQuery che si
-  attiva con un interruttore. Da verificare nella console: se era attivo,
-  è la voce più pesante fra quelle rimaste fuori.
-- **Servizi Google Cloud.** Andrea non ricorda quali. Nello stack c'è solo la
-  piattaforma, ed è la scelta giusta finché non si sa.
+- **Anteprima di GuitarPath a misura di mobile.** Il file è 1280×720 e su
+  telefono se ne buttano via 29 KiB su 38. Si risolve con un `srcset` o con un
+  secondo file più piccolo. Proposto il 2 agosto, non ancora deciso.
 
 ## Scelte su cui Andrea può ancora tornare
 
@@ -51,8 +45,6 @@ che la spec vuole navigazione minima.
   una ripetizione.
 - `pytest` è nello stack anche se i test sono generati dall'agente. È coerente
   con la sezione Metodo, che lo dichiara apertamente.
-- Le due anteprime dei progetti hanno temperature diverse: GuitarPath è scura,
-  la dashboard chiara. Si può ricatturare la dashboard in tema scuro.
 
 ## Vincoli emersi lavorando
 
@@ -62,7 +54,12 @@ che la spec vuole navigazione minima.
 - **Il nome dell'azienda non compare da nessuna parte**, ed è un vincolo della
   spec al §2. L'applicazione consumer resta senza nome. Il dataset della
   dashboard è generato con Faker, quindi il nome che vi compare è inventato.
+- **Nello stack Google Cloud resta la sola piattaforma.** Andrea non ricorda
+  quali servizi, e BigQuery non era attivo. Aggiungere una voce lì richiede una
+  verifica in console, non un ricordo.
 - **GitHub Pages impone una cache di dieci minuti** su tutti gli asset e non è
-  configurabile. È una delle due detrazioni su Lighthouse e non si recupera.
-- **Speed Index 4,5 s** è l'altra: è la sequenza dell'hero, che per due secondi
-  e mezzo mostra righe di log invece del contenuto. È un costo scelto.
+  configurabile. Lighthouse la elenca fra le diagnostiche, ma il punteggio non
+  la conta: pesa zero.
+- **Speed Index 4,4 s** è l'unica detrazione vera: è la sequenza dell'hero, che
+  per due secondi e mezzo mostra righe di log invece del contenuto. Vale circa
+  due punti e mezzo dei tre che mancano. È un costo scelto.

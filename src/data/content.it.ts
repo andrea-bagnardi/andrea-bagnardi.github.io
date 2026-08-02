@@ -215,7 +215,8 @@ export const content: SiteContent = {
         items: [
           'SQL',
           'Firebase Analytics',
-          'Reportistica',
+          'Google Analytics',
+          'Looker Studio',
           'Celery Beat',
           'Pandas',
           'ETL',
