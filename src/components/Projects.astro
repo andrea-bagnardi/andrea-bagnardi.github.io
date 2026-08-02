@@ -69,22 +69,9 @@ const meta = content.sections.projects;
             </div>
 
             <div class="space-y-8" data-reveal>
-              {/* Explicit dimensions on every branch, so swapping a placeholder
-                   for real artwork never moves the layout. */}
-              {project.preview.video ? (
-                <video
-                  class="aspect-video w-full rounded-md border border-border bg-surface"
-                  width="1280"
-                  height="720"
-                  poster={project.preview.poster ?? undefined}
-                  data-src={project.preview.video}
-                  preload="none"
-                  muted
-                  loop
-                  playsinline
-                  aria-label={project.preview.alt}
-                />
-              ) : project.preview.poster ? (
+              {/* Explicit dimensions on both branches, so swapping the
+                   placeholder for real artwork never moves the layout. */}
+              {project.preview.poster ? (
                 <img
                   class="aspect-video w-full rounded-md border border-border bg-surface"
                   src={project.preview.poster}

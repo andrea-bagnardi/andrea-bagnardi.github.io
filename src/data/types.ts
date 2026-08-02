@@ -61,10 +61,8 @@ export interface Project {
   actions: Action[];
   preview: {
     alt: string;
-    /** Still image, and the frame the clip shows before it plays. */
+    /** Still image. Null falls back to a placeholder box. */
     poster: string | null;
-    /** Short silent webm, loaded only as the section approaches. */
-    video: string | null;
   };
 }
 

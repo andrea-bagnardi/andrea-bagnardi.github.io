@@ -141,8 +141,6 @@ export const content: SiteContent = {
       preview: {
         alt: 'Home di GuitarPath: il titolo Suona quello che ami, la descrizione del coach e il pulsante per iniziare.',
         poster: '/previews/guitarpath.webp',
-        // TODO: clip ancora da registrare.
-        video: null,
       },
     },
     {
@@ -164,8 +162,6 @@ export const content: SiteContent = {
       preview: {
         alt: 'Dashboard di analisi: filtri per periodo, zona e categoria, indicatori chiave e andamento delle richieste nel tempo.',
         poster: '/previews/business-intelligence.webp',
-        // TODO: clip ancora da registrare.
-        video: null,
       },
     },
   ],
