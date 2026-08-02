@@ -100,7 +100,7 @@ export const content: SiteContent = {
         title: 'Infrastruttura e delivery',
         claim: 'Gestisco l’infrastruttura e il percorso che porta il codice in produzione.',
         evidence:
-          'Responsabilità diretta su server e ambienti da tutta la carriera, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. In preparazione la certificazione AWS Solutions Architect Associate.',
+          'Responsabilità diretta su server e ambienti da tutta la carriera, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. Backup e ripristino del database di produzione. In preparazione la certificazione AWS Solutions Architect Associate.',
         tags: ['Docker', 'GitHub Actions', 'Linux', 'Google Cloud'],
       },
       {
@@ -198,13 +198,18 @@ export const content: SiteContent = {
           'Django REST Framework',
           'REST',
           'Celery',
+          'gunicorn',
           'PostgreSQL',
           'Redis',
           'Firebase',
-          'gunicorn',
+          'Notifiche push',
+          'pytest',
         ],
       },
-      { title: 'Frontend', items: ['Angular', 'Ionic', 'TypeScript', 'Tailwind'] },
+      {
+        title: 'Frontend',
+        items: ['Angular', 'Ionic', 'Capacitor', 'Cordova', 'TypeScript', 'RxJS', 'Tailwind'],
+      },
       { title: 'Dati', items: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'] },
       {
         title: 'Infrastruttura',
@@ -216,6 +221,8 @@ export const content: SiteContent = {
           'nginx',
           'Google Cloud',
           'Sentry',
+          'Play Console',
+          'App Store Connect',
         ],
       },
     ],
