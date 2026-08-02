@@ -125,7 +125,7 @@ Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Respo
 Tag: Docker, GitHub Actions, Linux, AWS
 
 **Full stack e prodotto**
-So portare una funzionalità dal database allo schermo. Ho sviluppato un portale web gestionale in Ionic e costruito da zero un CRM appoggiato a un backend già in produzione, lavorando su interfacce usate quotidianamente da operatori professionali.
+So portare una funzionalità dal database allo schermo. Ho sviluppato un portale web gestionale in Ionic e costruito da zero un CRM appoggiato a un backend già in produzione, lavorando su interfacce usate quotidianamente da operatori professionali. Ho pubblicato applicazioni su App Store e Play Store.
 Tag: Angular, Ionic, TypeScript, Tailwind
 
 **Dati e business intelligence**

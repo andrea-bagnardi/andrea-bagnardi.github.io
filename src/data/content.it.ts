@@ -107,7 +107,7 @@ export const content: SiteContent = {
         title: 'Full stack e prodotto',
         claim: 'So portare una funzionalità dal database allo schermo.',
         evidence:
-          'Ho sviluppato un portale web gestionale in Ionic e costruito da zero un CRM appoggiato a un backend già in produzione, lavorando su interfacce usate quotidianamente da operatori professionali.',
+          'Ho sviluppato un portale web gestionale in Ionic e costruito da zero un CRM appoggiato a un backend già in produzione, lavorando su interfacce usate quotidianamente da operatori professionali. Ho pubblicato applicazioni su App Store e Play Store.',
         tags: ['Angular', 'Ionic', 'TypeScript', 'Tailwind'],
       },
       {
