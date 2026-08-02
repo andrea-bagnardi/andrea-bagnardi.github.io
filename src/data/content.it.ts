@@ -141,6 +141,18 @@ export const content: SiteContent = {
         { value: '440', label: 'test' },
         { value: 'Live', label: 'in produzione' },
       ],
+      stack: [
+        'Next.js',
+        'TypeScript',
+        'Prisma',
+        'PostgreSQL',
+        'Clerk',
+        'Tailwind',
+        'alphaTab',
+        'Tone.js',
+        'Vitest',
+        'Vercel',
+      ],
       actions: [
         { label: 'Prova la demo', href: 'https://guitarpath.vercel.app/' },
         // Il repository e' privato: l'azione resta fuori dalla pagina.
@@ -163,6 +175,7 @@ export const content: SiteContent = {
         'Storicizzazione SCD2 sulle dimensioni: un’analisi sul passato non viene riscritta dai dati di oggi.',
       ],
       stats: [{ value: '9', label: 'settimane dallo zero alla demo online' }],
+      stack: ['Python', 'Pandas', 'NumPy', 'SQLite', 'Streamlit', 'Faker'],
       actions: [
         { label: 'Dashboard live', href: 'https://pw-bagnardi-andrea.streamlit.app/' },
         { label: 'Repository', href: 'https://github.com/andrea-bagnardi/project-work' },
@@ -181,21 +194,6 @@ export const content: SiteContent = {
       { title: 'Dati', items: ['Pandas', 'ETL', 'Data warehouse', 'Streamlit'] },
       { title: 'Infrastruttura', items: ['Docker', 'GitHub Actions', 'Linux', 'AWS'] },
     ],
-    personal: {
-      title: 'Progetto personale',
-      items: [
-        'Next.js',
-        'TypeScript',
-        'Prisma',
-        'PostgreSQL',
-        'Clerk',
-        'Tailwind',
-        'alphaTab',
-        'Tone.js',
-        'Vitest',
-        'Vercel',
-      ],
-    },
   },
 
   method: {

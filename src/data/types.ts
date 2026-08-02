@@ -58,6 +58,8 @@ export interface Project {
   /** Optional note on how the project was built. */
   method?: string;
   stats: Stat[];
+  /** Technologies this project is built on, one word each. */
+  stack: string[];
   actions: Action[];
   preview: {
     alt: string;
@@ -73,7 +75,6 @@ export interface StackGroup {
 
 export interface Stack {
   groups: StackGroup[];
-  personal: StackGroup;
 }
 
 export type MethodRole = 'human' | 'agent' | 'gate';
