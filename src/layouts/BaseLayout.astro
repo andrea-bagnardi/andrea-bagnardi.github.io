@@ -6,6 +6,7 @@ import '../styles/global.css';
 import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
 import bodyFont from '@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2?url';
 
+import HeroIntroFlag from '../components/HeroIntroFlag.astro';
 import { content } from '../data';
 
 interface Props {
@@ -13,9 +14,11 @@ interface Props {
   description: string;
   /** Off for pages that exist only in development. */
   indexable?: boolean;
+  /** Off for pages without a hero to reveal. */
+  heroIntro?: boolean;
 }
 
-const { title, description, indexable = true } = Astro.props;
+const { title, description, indexable = true, heroIntro = true } = Astro.props;
 const { meta } = content;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -78,27 +81,7 @@ const person = {
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
 
-    {
-      /* Decides before the first paint whether the hero sequence will play, so
-        the hero is never shown and then hidden again. Everything else waits. */
-    }
-    <script is:inline>
-      (() => {
-        try {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-          if (sessionStorage.getItem('hero-intro') === 'done') return;
-          const root = document.documentElement;
-          root.dataset.intro = 'pending';
-          // If the bundle never arrives, nothing would ever clear the marker
-          // and the hero would stay hidden. Well past the longest run.
-          setTimeout(function () {
-            if (root.dataset.intro === 'pending') root.dataset.intro = 'done';
-          }, 5000);
-        } catch {
-          // Storage can be unavailable; the hero then simply shows itself.
-        }
-      })();
-    </script>
+    {heroIntro && <HeroIntroFlag />}
   </head>
   <body>
     <slot />

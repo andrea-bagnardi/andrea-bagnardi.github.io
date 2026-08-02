@@ -95,6 +95,13 @@ export interface Contact {
   actions: Action[];
 }
 
+export interface NotFound {
+  eyebrow: string;
+  title: string;
+  message: string;
+  backLabel: string;
+}
+
 export interface SectionMeta {
   id: string;
   index: string;
@@ -124,6 +131,7 @@ export interface SiteContent {
   stack: Stack;
   method: Method;
   contact: Contact;
+  notFound: NotFound;
   backToTop: string;
   skipToContent: string;
 }

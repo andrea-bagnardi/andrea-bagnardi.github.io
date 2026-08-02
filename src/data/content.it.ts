@@ -26,6 +26,13 @@ export const content: SiteContent = {
     ogImageAlt: 'Andrea Bagnardi — Costruisco backend che reggono centomila persone al giorno',
   },
 
+  notFound: {
+    eyebrow: '404',
+    title: 'Pagina non trovata',
+    message: 'Questo indirizzo non porta a nulla. Il sito sta tutto in una pagina sola.',
+    backLabel: 'Torna alla home',
+  },
+
   skipToContent: 'Vai al contenuto',
   backToTop: 'Torna in cima',
 
