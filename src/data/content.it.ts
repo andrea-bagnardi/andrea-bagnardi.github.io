@@ -21,8 +21,7 @@ export const content: SiteContent = {
     ],
     profiles: [
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
-      // TODO: URL del profilo, ancora da fornire.
-      { label: 'LinkedIn', href: null },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
     ],
     ogImageAlt: 'Andrea Bagnardi — Costruisco backend che reggono centomila persone al giorno',
   },
@@ -221,8 +220,7 @@ export const content: SiteContent = {
       // TODO: PDF ancora da preparare, i bottoni restano fuori dalla pagina.
       { label: 'CV italiano', href: null },
       { label: 'CV English', href: null },
-      // TODO: URL del profilo, ancora da fornire.
-      { label: 'LinkedIn', href: null },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
     ],
     emailLabel: 'Scrivimi',
