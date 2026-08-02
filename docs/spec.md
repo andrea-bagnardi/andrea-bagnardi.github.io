@@ -103,7 +103,7 @@ Contenuti:
 
 - Nome: **Andrea Bagnardi**
 - Riga di posizionamento, da scegliere tra queste tre alternative:
-  1. "Costruisco backend che reggono centomila persone al giorno"
+  1. "Costruisco backend che reggono oltre centomila persone al giorno"
   2. "Backend, dati e infrastruttura. Più di dieci anni a tenere in piedi cose che vanno in produzione"
   3. "Software engineer. Progetto backend, li porto in produzione e li mantengo vivi"
 - Riga di contesto sotto: "Più di dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura."

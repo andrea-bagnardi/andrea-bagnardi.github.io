@@ -23,7 +23,8 @@ export const content: SiteContent = {
       { label: 'GitHub', href: 'https://github.com/andrea-bagnardi' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrea-bagnardi/' },
     ],
-    ogImageAlt: 'Andrea Bagnardi · Costruisco backend che reggono centomila persone al giorno',
+    ogImageAlt:
+      'Andrea Bagnardi · Costruisco backend che reggono oltre centomila persone al giorno',
   },
 
   notFound: {
@@ -71,7 +72,7 @@ export const content: SiteContent = {
 
   hero: {
     name: 'Andrea Bagnardi',
-    positioning: 'Costruisco backend che reggono centomila persone al giorno',
+    positioning: 'Costruisco backend che reggono oltre centomila persone al giorno',
     context:
       'Più di dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura.',
     trace: [
