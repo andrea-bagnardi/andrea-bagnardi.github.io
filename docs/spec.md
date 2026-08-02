@@ -7,7 +7,7 @@ Ultimo aggiornamento: 1 agosto 2026.
 
 ## 1. Obiettivo
 
-Sito vetrina personale di un software engineer con dieci anni di esperienza, orientato al backend, attualmente in cerca di nuove opportunità.
+Sito vetrina personale di un software engineer con dieci anni di esperienza, orientato al backend. È un sito di presentazione: non dichiara disponibilità e non raccoglie offerte di lavoro.
 
 Il sito viene linkato da LinkedIn, dal CV e dai social. Chi lo apre è quasi sempre un recruiter o un CTO, spesso da mobile, e dedica pochi secondi alla prima impressione.
 
@@ -15,7 +15,7 @@ Il sito deve fare tre cose, in ordine:
 
 1. comunicare in pochi secondi che tipo di ingegnere è chi lo ha scritto
 2. lasciare un ricordo visivo, così che il profilo si distingua dagli altri
-3. portare al CV, a LinkedIn, a GitHub e ai due progetti pubblici
+3. portare a LinkedIn, a GitHub e ai due progetti pubblici
 
 Il sito **non** è la prova principale delle competenze. La prova sono i due progetti pubblici linkati. Il sito deve essere curato e veloce, non spettacolare a spese della sostanza.
 
@@ -106,7 +106,7 @@ Contenuti:
   1. "Costruisco backend che reggono centomila persone al giorno"
   2. "Backend, dati e infrastruttura. Dieci anni a tenere in piedi cose che vanno in produzione"
   3. "Software engineer. Progetto backend, li porto in produzione e li mantengo vivi"
-- Riga di contesto sotto: "Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura. Disponibilità immediata."
+- Riga di contesto sotto: "Dieci anni di sviluppo professionale, oggi orientato a backend, dati e infrastruttura."
 
 La riga di posizionamento deve essere specifica, non un titolo generico: è quella che decide se chi arriva continua a scorrere.
 
@@ -181,11 +181,12 @@ Riga di chiusura: le stesse pipeline CI le ho costruite in azienda per fare da c
 
 Il soggetto delle frasi è sempre la persona, mai lo strumento. Da non usare in nessun punto del sito: l'etichetta "AI engineer".
 
-### 6.6 Contatti
+### 6.6 Dove trovarmi
 
-- Riga di apertura: disponibile per nuove opportunità come software engineer, con disponibilità immediata
-- Tre azioni: scarica il CV (italiano e inglese), LinkedIn, GitHub
-- Email composta da JavaScript al clic, mai presente in chiaro nel sorgente HTML
+- Riga di apertura: dice cosa si trova dietro ciascun link, non se chi scrive è disponibile
+- Due azioni: LinkedIn, GitHub
+- Nessun indirizzo email in nessuna forma, nemmeno offuscato o composto da JavaScript
+- Nessun CV scaricabile
 - Nessun numero di telefono, nessuna città, nessun form di contatto
 - Chiusura visiva: il campo di punti si dirada fino a spegnersi verso il fondo pagina
 
@@ -292,7 +293,6 @@ Dopo la fase 3 il sito è già pubblicabile e linkabile: le animazioni sono un m
 
 ## 11. Materiale da preparare a parte
 
-- CV in PDF, versione italiana e inglese
 - Clip video di GuitarPath e della dashboard, 10-15 secondi ciascuna
 - Scelta definitiva della riga di posizionamento tra le tre alternative
 - Decisione se rendere pubblico il repository di GuitarPath
