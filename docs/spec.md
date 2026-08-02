@@ -162,7 +162,7 @@ Nessun riferimento all'origine accademica del progetto.
 
 Ogni progetto elenca le proprie tecnologie accanto ai numeri, nella colonna dell'anteprima.
 
-Anteprime: immagine statica per progetto, in `webp`, con dimensioni esplicite. Le clip video sono state abbandonate e il codice che le caricava è stato rimosso: reintrodurle significa rimettere sia il markup sia il caricamento differito.
+Anteprime: immagine statica per progetto, in `webp`, con dimensioni esplicite. Di ogni anteprima esiste una seconda copia a metà larghezza, offerta ai telefoni con `srcset`: a 1280 px su uno schermo da 390 si buttano via più di venti KB. Le clip video sono state abbandonate e il codice che le caricava è stato rimosso: reintrodurle significa rimettere sia il markup sia il caricamento differito.
 
 ### 6.4 Stack
 

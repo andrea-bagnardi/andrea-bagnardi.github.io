@@ -13,6 +13,8 @@ const meta = content.sections.projects;
     {
       projects.map((project) => {
         const actions = project.actions.filter((action) => action.href !== null);
+        const { poster, posterSmall } = project.preview;
+        const srcset = posterSmall ? `${posterSmall} 640w, ${poster} 1280w` : undefined;
         return (
           <article class="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div class="lg:sticky lg:top-12 lg:self-start" data-reveal>
@@ -70,11 +72,17 @@ const meta = content.sections.projects;
 
             <div class="space-y-8" data-reveal>
               {/* Explicit dimensions on both branches, so swapping the
-                   placeholder for real artwork never moves the layout. */}
-              {project.preview.poster ? (
+                   placeholder for real artwork never moves the layout.
+                   494px is the preview column once the grid splits: the 1100px
+                   centre column, less the 24px gutters, less the 64px gap,
+                   halved. Below that breakpoint the image is the full width
+                   minus the same gutters. */}
+              {poster ? (
                 <img
                   class="aspect-video w-full rounded-md border border-border bg-surface"
-                  src={project.preview.poster}
+                  src={poster}
+                  srcset={srcset}
+                  sizes="(min-width: 1024px) 494px, calc(100vw - 3rem)"
                   width="1280"
                   height="720"
                   loading="lazy"

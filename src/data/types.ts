@@ -63,8 +63,10 @@ export interface Project {
   actions: Action[];
   preview: {
     alt: string;
-    /** Still image. Null falls back to a placeholder box. */
+    /** Still image at 1280×720. Null falls back to a placeholder box. */
     poster: string | null;
+    /** The same frame at half width, offered to phones through the srcset. */
+    posterSmall?: string;
   };
 }
 
