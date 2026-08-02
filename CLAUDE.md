@@ -8,6 +8,10 @@ GitHub Pages via GitHub Actions.
 The full brief lives in `docs/spec.md`. Read it before any work and follow it.
 If something in a request contradicts the spec, stop and ask instead of guessing.
 
+`docs/open-points.md` holds what the repository cannot tell you: what is
+waiting on someone else, which questions are unanswered, which decisions were
+taken out loud. Read it too, and prune it as entries close.
+
 ## Working method
 
 - Work one phase at a time, following the phase list in the spec. Never start
@@ -16,6 +20,39 @@ If something in a request contradicts the spec, stop and ask instead of guessing
   any ambiguities you found in the spec. Wait for confirmation.
 - Keep each phase in its own commit. The site must build and deploy at the end
   of every phase.
+- When user-facing text changes, update `docs/spec.md` in the same commit. A
+  commit where the two disagree is a commit where the brief has quietly
+  stopped being true.
+- After pushing, wait for the workflow run whose `headSha` matches `HEAD` and
+  then check the deployed page, not the local build. Reading `gh run list`
+  right after a push returns the previous run.
+
+## Facts
+
+Never invent a fact that ends up on the page: a technology, a figure, a year,
+a product name. Everything on this site has to survive being asked about in an
+interview. Derive it from a repository, ask, or leave it out.
+
+When a number appears in more than one place, change all of them together and
+check they still agree. Two figures that contradict each other across a screen
+are worse than one conservative figure.
+
+## Writing
+
+The site is read by people who see a great deal of generated copy. What gives
+it away, and what to avoid:
+
+- Aphorisms built on abstractions: "turn raw data into decisions". Name the
+  actual problem instead.
+- Tails that add nothing and cannot be checked, especially next to a precise
+  number, which they weaken.
+- The same sentence, or the same list of three, reused in two sections.
+- Perfect symmetry across a set of items.
+
+Admissions of incompleteness — a certification still in preparation, a product
+in soft launch — are worth protecting. Generated copy almost never contains
+them. Short, asymmetric sentences carrying an opinion are the register to aim
+for.
 
 ## Conventions
 

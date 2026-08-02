@@ -122,14 +122,14 @@ Tag: Python, Django, REST, PostgreSQL
 
 **Infrastruttura e delivery**
 Gestisco l'infrastruttura e il percorso che porta il codice in produzione. Responsabilità diretta su server e ambienti da tutta la carriera, containerizzazione con Docker e Docker Compose, pipeline CI/CD costruite per fare da controllo qualità sulle pull request del team. Backup e ripristino del database di produzione. In preparazione la certificazione AWS Solutions Architect Associate.
-Tag: Docker, GitHub Actions, Linux, AWS
+Tag: Docker, GitHub Actions, Linux, Google Cloud
 
 **Full stack e prodotto**
 So portare una funzionalità dal database allo schermo. Ho sviluppato un portale web gestionale in Ionic e costruito da zero un CRM appoggiato a un backend già in produzione, lavorando su interfacce usate quotidianamente da operatori professionali. Ho pubblicato applicazioni su App Store e Play Store.
 Tag: Angular, Ionic, TypeScript, Tailwind
 
 **Dati e business intelligence**
-Trasformo dati grezzi in decisioni. Pipeline ETL in Python e Pandas, data warehouse a schema a stella con storicizzazione SCD2, dashboard interattiva per l'analisi. Codice pubblico e demo online.
+Prendo dati sparsi in gestionali diversi e li rendo interrogabili. Pipeline ETL in Python e Pandas, data warehouse a schema a stella con storicizzazione SCD2, dashboard interattiva per l'analisi. Codice pubblico e demo online.
 Tag: Pandas, ETL, data warehouse, Streamlit
 
 **Fascia trasversale**, a tutta larghezza sotto la griglia, senza numeri:
@@ -153,14 +153,14 @@ Due blocchi a tutta larghezza, non card affiancate. Colonna di testo con posizio
 Nessun riferimento all'origine accademica del progetto.
 
 - Problema: nel settore della formazione i dati operativi restano sparsi tra gestionali diversi e non diventano mai informazione utile per decidere.
-- Soluzione: pipeline ETL che raccoglie e normalizza i dati, data warehouse a schema a stella con storicizzazione SCD2, dashboard interattiva.
+- Soluzione: raccoglie i dati dai gestionali, li normalizza e li storicizza, poi li espone in una dashboard. Da non ripetere con le stesse parole della card 6.2, che descrive la stessa pipeline.
 - Decisioni tecniche da evidenziare: scelta dello schema a stella con motivazione in una riga; storicizzazione SCD2.
 - Numeri: nove settimane dallo zero alla demo online
 - Azioni: dashboard live (`https://pw-bagnardi-andrea.streamlit.app/`), repository (`https://github.com/andrea-bagnardi/project-work`)
 
 Ogni progetto elenca le proprie tecnologie accanto ai numeri, nella colonna dell'anteprima.
 
-Anteprime: clip video brevi senza audio, 10-15 secondi, in `webm` sotto i 2 MB, caricate solo quando la sezione si avvicina alla viewport, con immagine statica come fallback. Se le clip non sono pronte, partire con screenshot e sostituirli dopo.
+Anteprime: immagine statica per progetto, in `webp`, con dimensioni esplicite. Le clip video sono state abbandonate e il codice che le caricava è stato rimosso: reintrodurle significa rimettere sia il markup sia il caricamento differito.
 
 ### 6.4 Stack
 
@@ -195,6 +195,8 @@ Il soggetto delle frasi è sempre la persona, mai lo strumento. Da non usare in 
 - Nessun CV scaricabile
 - Nessun numero di telefono, nessuna città, nessun form di contatto
 - Chiusura visiva: il campo di punti si dirada fino a spegnersi verso il fondo pagina
+
+Oltre alla pagina singola esiste una **404** con la stessa grafica, marcata `noindex` e fuori dalla sitemap. Carica solo il campo di punti: niente sequenza dell'hero, niente animazioni allo scroll.
 
 ---
 
@@ -292,16 +294,18 @@ Con `prefers-reduced-motion: reduce` attivo:
 6. Anteprime dei progetti, meta tag, dati strutturati, immagine di anteprima
 7. Verifica su Lighthouse, prova con movimento ridotto, prova da tastiera, prova con JavaScript disattivato
 8. Aggiunta del sottodominio `is-a.dev`
+9. Versione inglese: routing `/en`, `hreflang`, sitemap a due lingue, selettore di lingua, traduzione dei contenuti e della pagina 404
 
 Dopo la fase 3 il sito è già pubblicabile e linkabile: le animazioni sono un miglioramento incrementale, non un prerequisito.
 
 ---
 
-## 11. Materiale da preparare a parte
+## 11. Decisioni prese sul materiale
 
-- Clip video di GuitarPath e della dashboard, 10-15 secondi ciascuna
-- Scelta definitiva della riga di posizionamento tra le tre alternative
-- Decisione se rendere pubblico il repository di GuitarPath
+- CV in PDF: **non si fanno**. Il sito non ospita CV scaricabili.
+- Clip video dei progetti: **abbandonate**. Restano le immagini statiche.
+- Riga di posizionamento: scelta la prima delle tre alternative, con l'aggiunta di "oltre".
+- Repository di GuitarPath: **resta privato**, quindi l'azione "vedi il codice" non compare.
 
 ---
 
