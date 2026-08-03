@@ -233,7 +233,7 @@ Se lo scroll parte prima della fine, la sequenza si conclude immediatamente allo
 - Rivelazioni sfalsate all'ingresso di ogni sezione, spostamento verticale contenuto (massimo 24 px) e dissolvenza
 - Contatore animato da 0 a 100.000+ sulla prima card delle competenze, una sola volta. È l'unico numero animato del sito.
 - Colonna di testo sticky nella sezione progetti
-- Diagramma del metodo che si disegna all'ingresso
+- Diagramma del metodo che si disegna all'ingresso, come una linea sola che attraversa connettori e riquadri a velocità costante e parte, su ogni riquadro, dal punto in cui il connettore lo raggiunge. Il testo di ogni fase compare quando il suo riquadro si chiude, senza fermare la linea. Il diagramma si svuota appena lo script parte, mentre è ancora sotto la piega: svuotarlo all'ingresso della sezione vorrebbe dire cancellarlo sotto gli occhi di chi lo sta già guardando
 
 ### 7.4 Movimento ridotto
 

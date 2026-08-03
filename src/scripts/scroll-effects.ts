@@ -159,50 +159,41 @@ function drawDiagram(
   const edge = (): OutlineEdge => (horizontal() ? 'left' : 'top');
 
   const traced: { svg: SVGElement; rect: SVGRectElement; path: SVGPathElement }[] = [];
-  let played = false;
 
-  const shape = () => {
-    for (const { svg, path } of traced) {
-      const box = svg.getBoundingClientRect();
-      path.setAttribute('d', outlinePath(box.width, box.height, edge()));
-    }
-  };
+  /** One phase, measured while it is still at its full size. */
+  interface Step {
+    connector: { element: HTMLElement; duration: number } | null;
+    outline: { path: SVGPathElement; duration: number } | null;
+    badges: HTMLElement[];
+    text: HTMLElement | null;
+  }
 
-  const timeline = gsap.timeline({
-    scrollTrigger: { trigger: diagram, start: START, once: true },
-    onComplete: () => {
-      played = true;
-      // Give the outline back to the rect, which is the one that survives a
-      // resize: the traced path is measured in pixels and would not.
-      for (const { rect, path } of traced) {
-        path.remove();
-        rect.style.removeProperty('display');
-      }
-    },
-  });
-
-  // One playhead for the trace. The text is placed on the timeline at an
-  // absolute time instead of being appended, so the pen never waits for it.
-  let at = 0;
-
+  const steps: Step[] = [];
   const connectors: HTMLElement[] = [];
   const paths: SVGPathElement[] = [];
-  const labels: HTMLElement[] = [];
+  const badges: HTMLElement[] = [];
   const texts: HTMLElement[] = [];
 
+  // First pass: read the geometry. Durations have to be taken now, before
+  // anything is scaled to nothing, or a collapsed connector would measure zero.
   for (const phase of phases) {
     const connector = phase.querySelector<HTMLElement>('[data-connector]');
     const svg = phase.querySelector<SVGElement>('[data-phase-outline]');
     const rect = svg?.querySelector('rect') ?? null;
-    const label = phase.querySelector<HTMLElement>('[data-phase-label]');
     const text = phase.querySelector<HTMLElement>('[data-phase-text]');
+    // The name of the phase and, on the gate, its mark: both belong to the box
+    // that has just closed, so neither is left hanging in an empty row.
+    const phaseBadges = [
+      phase.querySelector<HTMLElement>('[data-phase-label]'),
+      phase.querySelector<HTMLElement>('[data-phase-mark]'),
+    ].filter((badge): badge is HTMLElement => badge !== null);
+
+    const step: Step = { connector: null, outline: null, badges: phaseBadges, text };
 
     if (connector) {
-      connectors.push(connector);
       const box = connector.getBoundingClientRect();
-      const duration = segment(Math.max(box.width, box.height));
-      timeline.to(connector, { scaleX: 1, scaleY: 1, duration, ease: 'none' }, at);
-      at += duration;
+      step.connector = { element: connector, duration: segment(Math.max(box.width, box.height)) };
+      connectors.push(connector);
     }
 
     if (svg && rect) {
@@ -217,50 +208,92 @@ function drawDiagram(
       // Undrawn the two are the same outline, so the swap is invisible.
       rect.style.display = 'none';
       traced.push({ svg, rect, path });
-
       paths.push(path);
-      const duration = segment(path.getTotalLength());
+      step.outline = { path, duration: segment(path.getTotalLength()) };
+    }
+
+    badges.push(...phaseBadges);
+    if (text) texts.push(text);
+    steps.push(step);
+  }
+
+  const shape = () => {
+    for (const { svg, path } of traced) {
+      const box = svg.getBoundingClientRect();
+      path.setAttribute('d', outlinePath(box.width, box.height, edge()));
+    }
+  };
+
+  const hide = () => {
+    gsap.set(connectors, {
+      scaleX: horizontal() ? 0 : 1,
+      scaleY: horizontal() ? 1 : 0,
+      transformOrigin: horizontal() ? 'left center' : 'center top',
+    });
+    gsap.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 });
+    gsap.set(badges, { opacity: 0 });
+    gsap.set(texts, { opacity: 0, y: 8 });
+  };
+
+  // Cleared now, while the diagram is still far below the fold, and not when
+  // its trigger fires: by then the section is already on screen, and wiping it
+  // in front of the reader to draw it again is the one thing this animation
+  // must not do. With reduced motion or without JavaScript none of this runs
+  // and the diagram is simply the finished one.
+  hide();
+
+  let started = false;
+
+  const timeline = gsap.timeline({
+    scrollTrigger: { trigger: diagram, start: START, once: true },
+    onStart: () => {
+      started = true;
+    },
+    onComplete: () => {
+      // Give the outline back to the rect, which is the one that survives a
+      // resize: the traced path is measured in pixels and would not.
+      for (const { rect, path } of traced) {
+        path.remove();
+        rect.style.removeProperty('display');
+      }
+    },
+  });
+
+  // One playhead for the trace. The text is placed on the timeline at an
+  // absolute time instead of being appended, so the pen never waits for it.
+  let at = 0;
+
+  for (const step of steps) {
+    if (step.connector) {
+      const { element, duration } = step.connector;
+      timeline.to(element, { scaleX: 1, scaleY: 1, duration, ease: 'none' }, at);
+      at += duration;
+    }
+
+    if (step.outline) {
+      const { path, duration } = step.outline;
       timeline.to(path, { strokeDashoffset: 0, duration, ease: 'none' }, at);
       // Back to a plain stroke, so no dash seam is left on the closing corner.
       timeline.set(path, { strokeDasharray: 'none' }, at + duration);
       at += duration;
     }
 
-    // The name of the phase and, on the gate, its mark: both belong to the box
-    // that has just closed, so neither is left hanging in an empty row.
-    for (const badge of [label, phase.querySelector<HTMLElement>('[data-phase-mark]')]) {
-      if (!badge) continue;
-      labels.push(badge);
+    for (const badge of step.badges) {
       timeline.to(badge, { opacity: 1, duration: 0.25 }, at);
     }
 
-    if (text) {
-      texts.push(text);
-      timeline.to(text, { opacity: 1, y: 0, duration: 0.3 }, at);
+    if (step.text) {
+      timeline.to(step.text, { opacity: 1, y: 0, duration: 0.3 }, at);
     }
   }
 
-  // Everything clears in one go as the timeline starts, rather than each box
-  // vanishing when its own turn arrives: a phase that pops out of view a
-  // second after you have read it is worse than one that was never there.
-  // Nothing is applied at load, so a diagram that is never scrolled to is
-  // simply the finished diagram.
-  timeline.set(
-    connectors,
-    {
-      scaleX: () => (horizontal() ? 0 : 1),
-      scaleY: () => (horizontal() ? 1 : 0),
-      transformOrigin: () => (horizontal() ? 'left center' : 'center top'),
-    },
-    0,
-  );
-  timeline.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 }, 0);
-  timeline.set(labels, { opacity: 0 }, 0);
-  timeline.set(texts, { opacity: 0, y: 8 }, 0);
-
-  // A resize before the diagram is reached would leave the paths cut to the
-  // old width. Once it has played the rect is back and there is nothing to fix.
+  // A resize before the diagram is reached would leave the paths cut to the old
+  // width, and a diagram that has just stacked would be hiding the wrong axis
+  // of its connectors. Once it has started, hands off: re-hiding halfway
+  // through would undo what has been drawn.
   ScrollTrigger.addEventListener('refresh', () => {
-    if (!played) shape();
+    if (started) return;
+    shape();
+    hide();
   });
 }
