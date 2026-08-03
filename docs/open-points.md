@@ -7,10 +7,12 @@ Va tenuto corto e potato quando le voci si chiudono.
 ## Stato delle fasi
 
 Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
-Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato, su entrambe
-le lingue: performance 97, accessibilità 100, best practices 100, SEO 100 su
-tutte e due. Peso trasferito 181 KiB, anteprima di GuitarPath compresa.
-Attenzione misurando: se il Chrome della macchina non è in italiano, la
+Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato. Accessibilità
+100, best practices 100 e SEO 100 sono stabili su entrambe le lingue. La
+performance no: quattro misurazioni di fila sullo stesso commit hanno dato 97,
+97, 99 e 100. Peso trasferito 182 KiB. Un numero solo, preso una volta, qui non
+significa niente: misurare tre volte prima di dire che qualcosa è peggiorato.
+Attenzione anche al browser: se il Chrome della macchina non è in italiano, la
 richiesta alla radice viene reindirizzata e si finisce per misurare `/en/`.
 
 **Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
@@ -58,6 +60,10 @@ browser, non il paese, che qui non è conoscibile.
 - **GitHub Pages impone una cache di dieci minuti** su tutti gli asset e non è
   configurabile. Lighthouse la elenca fra le diagnostiche, ma il punteggio non
   la conta: pesa zero.
-- **Speed Index 4,3 s** è l'unica detrazione vera: è la sequenza dell'hero, che
-  per due secondi e mezzo mostra righe di log invece del contenuto. Vale circa
-  due punti e mezzo dei tre che mancano. È un costo scelto.
+- **Lo Speed Index oscilla fra 1,3 e 4,3 secondi a parità di codice**, ed è
+  tutta la differenza fra 97 e 100. Non è la sequenza dell'hero, come questo
+  file ha sostenuto per giorni: i fotogrammi di Lighthouse dicono il contrario.
+  Nella misurazione peggiore, a 1,1 secondi la pagina era ancora bianca; in
+  quella migliore, allo stesso istante la sequenza era già in corso e sotto si
+  vedeva la sezione successiva. Il numero segue il primo disegno, che su GitHub
+  Pages varia da una richiesta all'altra.
