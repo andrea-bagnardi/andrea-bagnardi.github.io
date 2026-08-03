@@ -97,7 +97,7 @@ Il campo di punti animato, presente su tutta la pagina come strato di sfondo a b
 
 ## 6. Struttura e contenuti
 
-Pagina singola, sei blocchi in sequenza. Navigazione minima: solo un'ancora di ritorno in cima e i link ai contatti. Nessun menu a comparsa.
+Pagina singola, sei blocchi in sequenza. Navigazione minima: l'ancora di ritorno in cima, i link ai contatti e la coppia `IT / EN`, in alto a destra nell'hero e in fondo accanto al ritorno in cima. Nessun menu a comparsa: sono due parole, non un selettore che si apre.
 
 ### 6.1 Hero
 
@@ -198,7 +198,7 @@ Il soggetto delle frasi è sempre la persona, mai lo strumento. Da non usare in 
 - Nessun numero di telefono, nessuna città, nessun form di contatto
 - Chiusura visiva: il campo di punti si dirada fino a spegnersi verso il fondo pagina
 
-Oltre alla pagina singola esiste una **404** con la stessa grafica, marcata `noindex` e fuori dalla sitemap. Carica solo il campo di punti: niente sequenza dell'hero, niente animazioni allo scroll.
+Oltre alla pagina singola esiste una **404** con la stessa grafica, marcata `noindex` e fuori dalla sitemap. Carica solo il campo di punti: niente sequenza dell'hero, niente animazioni allo scroll. È bilingue, prima l'italiano e poi l'inglese, con un solo `h1`: GitHub Pages serve quel file per qualunque percorso mancante, `/en/` compreso, e non ha modo di sapere in che lingua stava leggendo chi ci finisce. Sceglierla con JavaScript la sbaglierebbe per chi lo ha spento.
 
 ---
 
@@ -251,7 +251,7 @@ Con `prefers-reduced-motion: reduce` attivo:
 ### Performance
 
 - Obiettivo Lighthouse su mobile: performance sopra 95, accessibilità 100, best practices 100, SEO 100
-- Nessun JavaScript sul percorso critico oltre a quello del campo di punti, caricato in modo differito
+- Nessun JavaScript sul percorso critico oltre a quello del campo di punti, caricato in modo differito, e a due script inline nel `head`: quello che decide se la sequenza dell'hero deve partire e quello che manda sulla versione inglese chi non ha il browser in italiano. Girano prima del primo disegno perché servono a evitare uno sfarfallio, e restano corti
 - GSAP e Lenis caricati solo dopo il primo rendering utile
 - Font self-hosted in formato woff2 con `font-display: swap` e sottoinsieme latino
 - Immagini in AVIF o WebP con dimensioni esplicite per evitare spostamenti di layout
@@ -273,7 +273,8 @@ Con `prefers-reduced-motion: reduce` attivo:
 - Open Graph e Twitter Card con immagine di anteprima generata dal sito stesso
 - Dati strutturati `schema.org/Person`
 - `sitemap.xml` e `robots.txt`
-- Lingua principale italiana. Versione inglese non prevista in prima battuta, ma la struttura dei dati deve permettere di aggiungerla senza riscrivere i componenti.
+- Due lingue: italiano su `/`, inglese su `/en/`. Le due pagine si dichiarano a vicenda con `hreflang`, la sitemap le elenca entrambe e ciascuna ha la propria immagine di anteprima. Chi apre la radice con il browser impostato su una lingua diversa dall'italiano viene mandato sull'inglese prima del primo disegno; chi sceglie una lingua dalla coppia `IT / EN` non viene più spostato, mai. Da `/en/` non si torna indietro da soli: quell'indirizzo lo si riceve apposta.
+- Il paese di chi arriva non è conoscibile e non lo sarà: GitHub Pages serve file statici e basta, e chiederlo a un servizio esterno significherebbe consegnargli l'indirizzo di ogni visitatore. La lingua del browser è comunque la domanda giusta — un italiano all'estero legge in italiano.
 
 ---
 
@@ -296,7 +297,7 @@ Con `prefers-reduced-motion: reduce` attivo:
 6. Anteprime dei progetti, meta tag, dati strutturati, immagine di anteprima
 7. Verifica su Lighthouse, prova con movimento ridotto, prova da tastiera, prova con JavaScript disattivato
 8. Aggiunta del sottodominio `is-a.dev`
-9. Versione inglese: routing `/en`, `hreflang`, sitemap a due lingue, selettore di lingua, traduzione dei contenuti e della pagina 404
+9. Versione inglese: routing `/en`, `hreflang`, sitemap a due lingue, coppia `IT / EN`, traduzione dei contenuti, 404 bilingue e scelta automatica della lingua all'ingresso
 
 Dopo la fase 3 il sito è già pubblicabile e linkabile: le animazioni sono un miglioramento incrementale, non un prerequisito.
 

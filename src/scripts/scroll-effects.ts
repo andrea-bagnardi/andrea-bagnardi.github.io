@@ -84,7 +84,10 @@ function revealSections(gsap: typeof import('gsap').gsap): void {
 }
 
 function animateCounters(gsap: typeof import('gsap').gsap): void {
-  const format = new Intl.NumberFormat('it-IT');
+  // The thousands separator follows the page, not the machine: the same number
+  // is 100.000 in Italian and 100,000 in English, and the static markup has
+  // already committed to one of them.
+  const format = new Intl.NumberFormat(document.documentElement.lang || 'it');
 
   for (const element of document.querySelectorAll<HTMLElement>('[data-counter]')) {
     const target = Number(element.dataset.counter);

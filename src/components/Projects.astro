@@ -1,8 +1,9 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-import { content } from '../data';
+import { getContent } from '../data';
 
-const { projects } = content;
+const content = getContent(Astro.currentLocale);
+const { projects, labels } = content;
 const meta = content.sections.projects;
 ---
 
@@ -26,19 +27,19 @@ const meta = content.sections.projects;
               <dl class="mt-8 space-y-6">
                 <div>
                   <dt class="font-mono text-mono uppercase tracking-widest text-text-muted">
-                    Problema
+                    {labels.problem}
                   </dt>
                   <dd class="mt-2">{project.problem}</dd>
                 </div>
                 <div>
                   <dt class="font-mono text-mono uppercase tracking-widest text-text-muted">
-                    Soluzione
+                    {labels.solution}
                   </dt>
                   <dd class="mt-2">{project.solution}</dd>
                 </div>
                 <div>
                   <dt class="font-mono text-mono uppercase tracking-widest text-text-muted">
-                    Decisioni tecniche
+                    {labels.decisions}
                   </dt>
                   <dd class="mt-2">
                     <ul class="space-y-2">
@@ -94,7 +95,7 @@ const meta = content.sections.projects;
                   class="flex aspect-video w-full items-center justify-center rounded-md border border-border bg-surface"
                   aria-hidden="true"
                 >
-                  <span class="font-mono text-mono text-text-muted">anteprima in arrivo</span>
+                  <span class="font-mono text-mono text-text-muted">{labels.previewPending}</span>
                 </div>
               )}
 
@@ -109,7 +110,7 @@ const meta = content.sections.projects;
 
               <div>
                 <h4 class="font-mono text-mono uppercase tracking-widest text-text-muted">
-                  Tecnologie
+                  {labels.technologies}
                 </h4>
                 <ul class="mt-4 flex flex-wrap gap-2">
                   {project.stack.map((item) => (

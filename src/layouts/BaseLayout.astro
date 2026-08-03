@@ -7,22 +7,30 @@ import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolag
 import bodyFont from '@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2?url';
 
 import HeroIntroFlag from '../components/HeroIntroFlag.astro';
-import { content } from '../data';
+import LanguageRedirect from '../components/LanguageRedirect.astro';
+import { defaultLocale, getContent, isLocale, localeMeta, locales } from '../data';
 
 interface Props {
   title: string;
   description: string;
-  /** Off for pages that exist only in development. */
+  /** Off for pages that exist only in development, and for the 404. */
   indexable?: boolean;
   /** Off for pages without a hero to reveal. */
   heroIntro?: boolean;
 }
 
 const { title, description, indexable = true, heroIntro = true } = Astro.props;
-const { meta } = content;
+
+const locale = isLocale(Astro.currentLocale) ? Astro.currentLocale : defaultLocale;
+const { meta } = getContent(locale);
+
+// The two home pages are the only ones that have a counterpart in the other
+// language, so they are the only ones that declare one or send anybody there.
+const isHome = locales.some((candidate) => localeMeta[candidate].href === Astro.url.pathname);
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = new URL('/og.png', Astro.site).href;
+const shareImage = locale === defaultLocale ? '/og.png' : `/${locale}/og.png`;
+const ogImage = new URL(shareImage, Astro.site).href;
 
 const profiles = meta.profiles
   .filter((profile) => profile.href !== null)
@@ -33,10 +41,10 @@ const profiles = meta.profiles
 const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: content.hero.name,
+  name: 'Andrea Bagnardi',
   jobTitle: meta.jobTitle,
   description: meta.description,
-  url: new URL('/', Astro.site).href,
+  url: new URL(localeMeta[locale].href, Astro.site).href,
   image: ogImage,
   knowsAbout: meta.knowsAbout,
   ...(profiles.length > 0 ? { sameAs: profiles } : {}),
@@ -49,10 +57,30 @@ const person = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    {/* Before anything is painted, and before the hero decides what to do. */}
+    {isHome && locale === defaultLocale && <LanguageRedirect />}
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {!indexable && <meta name="robots" content="noindex" />}
+
+    {
+      indexable && isHome && (
+        <>
+          {locales.map((alternate) => (
+            <link
+              rel="alternate"
+              hreflang={alternate}
+              href={new URL(localeMeta[alternate].href, Astro.site).href}
+            />
+          ))}
+          {/* Whoever we cannot place gets the Italian page, and its script. */}
+          <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+        </>
+      )
+    }
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -60,7 +88,7 @@ const person = {
     <meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={content.hero.name} />
+    <meta property="og:site_name" content="Andrea Bagnardi" />
     <meta property="og:locale" content={meta.ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

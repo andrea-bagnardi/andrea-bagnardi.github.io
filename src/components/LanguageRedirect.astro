@@ -1,0 +1,28 @@
+---
+// Sends a visitor whose browser is not set to Italian to the English page.
+// Rendered only on the Italian page, and only in one direction: /en/ is an
+// address someone was given on purpose, so nobody is ever pulled off it.
+//
+// The country is not knowable here. GitHub Pages serves files and nothing
+// else, and asking a geolocation service would mean handing every visitor's
+// address to a third party. The language the browser asks for is the better
+// question anyway: an Italian abroad still reads Italian.
+//
+// Inline and in the head, so it runs before the first paint instead of
+// showing the Italian page and then yanking it away. It is the one script on
+// the critical path besides the dot field, and the brief says so.
+---
+
+<script is:inline>
+  (() => {
+    try {
+      if (localStorage.getItem('language')) return;
+      const preferred = (navigator.languages && navigator.languages[0]) || navigator.language;
+      if (!preferred || preferred.toLowerCase().indexOf('it') === 0) return;
+      // replace, not assign: Back should leave the site, not bounce here again.
+      location.replace('/en/');
+    } catch {
+      // Storage or navigator unavailable: the Italian page simply stays.
+    }
+  })();
+</script>

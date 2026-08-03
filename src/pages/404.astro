@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DotField from '../components/DotField.astro';
-import { content } from '../data';
+import { getContent, localeMeta, locales } from '../data';
 
-const { notFound } = content;
+// GitHub Pages serves this one file for every missing path, /en/ included, and
+// it cannot know which language was being read. So it says it twice rather than
+// guessing, and it says it without JavaScript, which a swap at runtime could
+// not do.
+const versions = locales.map((locale) => ({
+  locale,
+  home: localeMeta[locale].href,
+  ...getContent(locale).notFound,
+}));
+
+const [primary] = versions;
 ---
 
 <BaseLayout
-  title={`${notFound.title} · ${content.hero.name}`}
-  description={notFound.message}
+  title={`${primary.title} · Andrea Bagnardi`}
+  description={primary.message}
   indexable={false}
   heroIntro={false}
 >
@@ -16,34 +26,35 @@ const { notFound } = content;
 
   <main class="mx-auto flex min-h-[100svh] max-w-content flex-col justify-center px-6 py-section">
     <p class="font-mono text-mono uppercase tracking-widest text-text-muted">
-      {notFound.eyebrow}
+      {primary.eyebrow}
     </p>
-
-    <h1 class="mt-3 text-h2 font-display font-semibold">{notFound.title}</h1>
 
     <div class="mt-8 h-px w-24 bg-accent" aria-hidden="true"></div>
 
-    <p class="mt-8 max-w-[46ch] text-lead text-text-muted">{notFound.message}</p>
+    {
+      versions.map(({ locale, home, title, message, backLabel }, index) => (
+        <section class={index > 0 ? 'mt-14' : 'mt-10'} lang={locale}>
+          {/* One h1 on the page, as everywhere else: the second language is a
+              heading below it, not a second title. */}
+          {index === 0 ? (
+            <h1 class="text-h2 font-display font-semibold">{title}</h1>
+          ) : (
+            <h2 class="text-h2 font-display font-semibold">{title}</h2>
+          )}
 
-    <p class="mt-10">
-      <a
-        class="inline-block rounded-sm border border-border px-4 py-2 font-medium text-accent hover:border-accent"
-        href="/"
-      >
-        {notFound.backLabel}
-      </a>
-    </p>
+          <p class="mt-4 max-w-[46ch] text-lead text-text-muted">{message}</p>
+
+          <p class="mt-6">
+            <a
+              class="inline-block rounded-sm border border-border px-4 py-2 font-medium text-accent hover:border-accent"
+              href={home}
+              hreflang={locale}
+            >
+              {backLabel}
+            </a>
+          </p>
+        </section>
+      ))
+    }
   </main>
 </BaseLayout>
-
-<script>
-  // Only the dot field: there is no hero to reveal and nothing to watch on
-  // scroll, so neither the sequence nor ScrollTrigger is loaded here.
-  import { createDotField } from '../scripts/dot-field';
-
-  const canvas = document.querySelector<HTMLCanvasElement>('[data-dot-field]');
-  if (canvas) {
-    canvas.hidden = false;
-    createDotField(canvas);
-  }
-</script>

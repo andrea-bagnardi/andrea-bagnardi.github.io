@@ -1,7 +1,9 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-import { content } from '../data';
+import LanguageSwitch from './LanguageSwitch.astro';
+import { getContent } from '../data';
 
+const content = getContent(Astro.currentLocale);
 const { contact } = content;
 const meta = content.sections.contact;
 
@@ -26,9 +28,10 @@ const actions = contact.actions.filter((action) => action.href !== null);
     }
   </ul>
 
-  <p class="mt-16">
+  <div class="mt-16 flex flex-wrap items-center justify-between gap-4">
     <a class="font-mono text-mono uppercase tracking-widest text-text-muted" href="#top">
       {content.backToTop}
     </a>
-  </p>
+    <LanguageSwitch />
+  </div>
 </section>

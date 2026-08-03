@@ -1,0 +1,50 @@
+---
+import { getContent, isLocale, localeMeta, locales, defaultLocale } from '../data';
+
+const current = isLocale(Astro.currentLocale) ? Astro.currentLocale : defaultLocale;
+const { labels } = getContent(current);
+---
+
+{/* Two words, not a menu: the brief allows a language switch, not navigation. */}
+<nav class="flex items-center gap-2 font-mono text-mono" aria-label={labels.language}>
+  {
+    locales.map((locale, index) => {
+      const meta = localeMeta[locale];
+      const active = locale === current;
+      return (
+        <>
+          {index > 0 && (
+            <span class="text-text-muted" aria-hidden="true">
+              /
+            </span>
+          )}
+          <a
+            class:list={['rounded-sm', active ? 'text-text' : 'text-text-muted hover:text-accent']}
+            href={meta.href}
+            hreflang={locale}
+            lang={locale}
+            data-language={locale}
+            aria-current={active ? 'true' : undefined}
+          >
+            <span class="sr-only">{meta.name}</span>
+            <span aria-hidden="true">{meta.code}</span>
+          </a>
+        </>
+      );
+    })
+  }
+</nav>
+
+<script>
+  // Choosing by hand settles it: the redirect in the head reads this key and
+  // stands down, so nobody is bounced out of the language they asked for.
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-language]')) {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('language', link.dataset.language ?? '');
+      } catch {
+        // Private browsing can refuse the write; the link still works.
+      }
+    });
+  }
+</script>

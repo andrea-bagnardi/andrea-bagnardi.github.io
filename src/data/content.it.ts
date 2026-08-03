@@ -71,6 +71,15 @@ export const content: SiteContent = {
     },
   },
 
+  labels: {
+    problem: 'Problema',
+    solution: 'Soluzione',
+    decisions: 'Decisioni tecniche',
+    technologies: 'Tecnologie',
+    previewPending: 'anteprima in arrivo',
+    language: 'Lingua',
+  },
+
   hero: {
     name: 'Andrea Bagnardi',
     positioning: 'Costruisco backend che reggono oltre centomila persone al giorno',

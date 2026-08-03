@@ -110,6 +110,18 @@ export interface SectionMeta {
   title: string;
 }
 
+/** Words the components need that belong to no single section. */
+export interface Labels {
+  problem: string;
+  solution: string;
+  decisions: string;
+  technologies: string;
+  /** Shown in the box that stands in for a preview still. */
+  previewPending: string;
+  /** Names the language switch for screen readers. */
+  language: string;
+}
+
 export interface SiteContent {
   meta: {
     title: string;
@@ -126,6 +138,7 @@ export interface SiteContent {
     ogImageAlt: string;
   };
   sections: Record<'expertise' | 'projects' | 'stack' | 'method' | 'contact', SectionMeta>;
+  labels: Labels;
   hero: Hero;
   expertise: Expertise;
   projects: Project[];

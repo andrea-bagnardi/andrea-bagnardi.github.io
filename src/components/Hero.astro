@@ -1,13 +1,18 @@
 ---
-import { content } from '../data';
+import LanguageSwitch from './LanguageSwitch.astro';
+import { getContent } from '../data';
 
-const { hero } = content;
+const { hero } = getContent(Astro.currentLocale);
 ---
 
 <section
   id="top"
   class="relative mx-auto flex min-h-[80svh] max-w-content flex-col justify-center px-6 py-section"
 >
+  <div class="absolute right-6 top-8">
+    <LanguageSwitch />
+  </div>
+
   <div
     class="pointer-events-none absolute inset-x-6 top-1/2 -translate-y-1/2 font-mono text-mono"
     data-trace
