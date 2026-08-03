@@ -1,14 +1,14 @@
 # Punti aperti
 
-Stato al 2 agosto 2026. Questo file raccoglie ciò che non si deduce leggendo il
+Stato al 3 agosto 2026. Questo file raccoglie ciò che non si deduce leggendo il
 repository: attese esterne, domande senza risposta, decisioni prese a voce.
 Va tenuto corto e potato quando le voci si chiudono.
 
 ## Stato delle fasi
 
 Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
-Lighthouse mobile, misurato il 2 agosto 2026 sul sito pubblicato: performance
-97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 204 KiB su
+Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato: performance
+97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 181 KiB su
 13 richieste, anteprima di GuitarPath compresa.
 
 **Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
@@ -32,12 +32,6 @@ significa un file fratello e una riga in `src/data/index.ts`. Da tradurre
 anche la pagina 404. Da decidere dove mettere il selettore di lingua, visto
 che la spec vuole navigazione minima. Si parte quando lo dice Andrea.
 
-## Domande in attesa di risposta
-
-- **Anteprima di GuitarPath a misura di mobile.** Il file è 1280×720 e su
-  telefono se ne buttano via 29 KiB su 38. Si risolve con un `srcset` o con un
-  secondo file più piccolo. Proposto il 2 agosto, non ancora deciso.
-
 ## Scelte su cui Andrea può ancora tornare
 
 - `Celery Beat` sta nella colonna Dati mentre `Celery` sta in Backend. È
@@ -60,6 +54,6 @@ che la spec vuole navigazione minima. Si parte quando lo dice Andrea.
 - **GitHub Pages impone una cache di dieci minuti** su tutti gli asset e non è
   configurabile. Lighthouse la elenca fra le diagnostiche, ma il punteggio non
   la conta: pesa zero.
-- **Speed Index 4,4 s** è l'unica detrazione vera: è la sequenza dell'hero, che
+- **Speed Index 4,3 s** è l'unica detrazione vera: è la sequenza dell'hero, che
   per due secondi e mezzo mostra righe di log invece del contenuto. Vale circa
   due punti e mezzo dei tre che mancano. È un costo scelto.
