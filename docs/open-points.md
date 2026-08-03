@@ -8,7 +8,7 @@ Va tenuto corto e potato quando le voci si chiudono.
 
 Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
 Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato: performance
-97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 181 KiB su
+97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 182 KiB su
 13 richieste, anteprima di GuitarPath compresa.
 
 **Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
