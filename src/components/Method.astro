@@ -11,7 +11,10 @@ const meta = content.sections.method;
  * background it clears the contrast threshold for shapes, not for small text.
  *
  * The outline is an SVG rect rather than a CSS border so the scroll animation
- * can trace it. Undrawn it looks the same, so nothing depends on the script.
+ * can trace it: the script swaps in a path that starts where the connector
+ * lands, draws it, then hands the outline back to the rect, which is the one
+ * that survives a resize. Undrawn the two are identical, so nothing depends on
+ * the script.
  */
 const roleStyles: Record<MethodRole, { outline: string; label: string }> = {
   human: { outline: 'text-accent', label: 'text-accent' },
@@ -62,7 +65,11 @@ const roleStyles: Record<MethodRole, { outline: string; label: string }> = {
             </span>
 
             {phase.role === 'gate' && (
-              <span class="size-2 shrink-0 rounded-sm bg-signal" aria-hidden="true" />
+              <span
+                class="size-2 shrink-0 rounded-sm bg-signal"
+                data-phase-mark
+                aria-hidden="true"
+              />
             )}
           </div>
 
