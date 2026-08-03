@@ -215,7 +215,7 @@ Oltre alla pagina singola esiste una **404** con la stessa grafica, marcata `noi
 
 ### 7.2 Sequenza dell'hero
 
-Durata totale massima 2,5 secondi. Si esegue una sola volta per sessione, memorizzata in `sessionStorage`: chi torna sulla pagina nella stessa sessione vede subito lo stato finale.
+Durata totale massima 2,5 secondi. Con nove righe di log la sequenza ne dura 2,42: il margine è finito, e una decima riga sfonda il tetto. Si esegue una sola volta per sessione, memorizzata in `sessionStorage`: chi torna sulla pagina nella stessa sessione vede subito lo stato finale.
 
 1. Il campo di punti è già presente, quasi spento
 2. Righe di log in monospazio compaiono in sequenza, una ogni 140 ms circa, allineate a sinistra al centro dell'area; ogni riga mostra metodo, percorso, codice di stato e tempo di risposta
