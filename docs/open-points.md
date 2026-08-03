@@ -7,9 +7,11 @@ Va tenuto corto e potato quando le voci si chiudono.
 ## Stato delle fasi
 
 Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
-Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato: performance
-97, accessibilità 100, best practices 100, SEO 100. Peso trasferito 182 KiB su
-13 richieste, anteprima di GuitarPath compresa.
+Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato, su entrambe
+le lingue: performance 97, accessibilità 100, best practices 100, SEO 100 su
+tutte e due. Peso trasferito 181 KiB, anteprima di GuitarPath compresa.
+Attenzione misurando: se il Chrome della macchina non è in italiano, la
+richiesta alla radice viene reindirizzata e si finisce per misurare `/en/`.
 
 **Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
 è aperta: numero 45788, aggiunge `domains/andrea-bagnardi.json` con un CNAME
