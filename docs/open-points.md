@@ -26,11 +26,14 @@ Quando viene unita, e non prima:
 Farlo prima che il DNS risolva rende il sito irraggiungibile: GitHub Pages
 inizia a reindirizzare verso un dominio che non esiste ancora.
 
-**Fase 9, non iniziata.** Versione inglese. La struttura dei dati è già
-pronta: `src/data/content.it.ts` è un oggetto tipato, aggiungere una lingua
-significa un file fratello e una riga in `src/data/index.ts`. Da tradurre
-anche la pagina 404. Da decidere dove mettere il selettore di lingua, visto
-che la spec vuole navigazione minima. Si parte quando lo dice Andrea.
+**Fase 9, in corso.** Versione inglese. La forma di `content.it.ts` regge una
+seconda lingua così com'è, ma il file fratello non è la modifica vera:
+`src/data/index.ts` esporta una costante di modulo che tutti i componenti
+importano, e finché resta così nessun componente sa in che lingua è la pagina
+che lo ospita. Servono anche la rotta `/en`, gli `hreflang`, la sitemap a due
+lingue e una seconda immagine di anteprima, che `og.png.ts` costruisce oggi
+dalla riga di posizionamento italiana. La 404 è una sola per entrambe le
+lingue: GitHub Pages serve quel file per qualunque percorso mancante.
 
 ## Scelte su cui Andrea può ancora tornare
 
