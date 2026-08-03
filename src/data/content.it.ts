@@ -178,6 +178,40 @@ export const content: SiteContent = {
       },
     },
     {
+      name: 'client-requests',
+      eyebrow: 'Codice pubblico, backend e frontend',
+      problem:
+        'Le richieste dei clienti arrivano come testo libero: qualcuno le legge una per una, decide di cosa parlano e a chi passarle.',
+      solution:
+        'Un modello propone categoria, priorità e un riassunto, e chi gestisce la richiesta conferma o corregge. La demo gira su un piano gratuito che si spegne quando nessuno la usa: la prima richiesta dopo un periodo di silenzio aspetta il risveglio del server.',
+      decisions: [
+        'Il classificatore è un’interfaccia con due implementazioni registrate per nome: una euristica che gira offline, una che chiama un modello. Si sceglie da variabile d’ambiente, e la suite di test non ha bisogno di una chiave.',
+        'Il limite di frequenza sull’endpoint a pagamento sta nel database, non in memoria, quindi regge anche con più istanze. Limita il ritmo, non la spesa totale: quella la ferma il tetto sull’account del fornitore.',
+      ],
+      stats: [{ value: '263', label: 'test automatici' }],
+      stack: [
+        'FastAPI',
+        'SQLAlchemy',
+        'Alembic',
+        'PostgreSQL',
+        'React',
+        'TanStack Query',
+        'Zod',
+        'pytest',
+        'Vitest',
+        'Docker',
+      ],
+      actions: [
+        { label: 'Prova la demo', href: 'https://client-requests.vercel.app/' },
+        { label: 'Vedi il codice', href: 'https://github.com/andrea-bagnardi/client-requests' },
+      ],
+      preview: {
+        alt: 'Richieste dei clienti: il modulo per una nuova richiesta e l’elenco, con categoria, priorità e riassunto proposti dal modello.',
+        poster: '/previews/client-requests.webp',
+        posterSmall: '/previews/client-requests-640.webp',
+      },
+    },
+    {
       name: 'Sistema di business intelligence',
       eyebrow: 'Progetto di business intelligence con codice pubblico',
       problem:

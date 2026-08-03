@@ -179,6 +179,41 @@ export const content: SiteContent = {
       },
     },
     {
+      name: 'client-requests',
+      eyebrow: 'Public code, backend and front',
+      problem:
+        'Client requests arrive as free text: someone reads them one at a time, works out what they are about and who should handle them.',
+      solution:
+        'A model proposes a category, a priority and a summary, and whoever handles the request confirms or corrects it. The demo runs on a free plan that shuts down when nobody is using it, so the first request after a quiet spell waits for the server to wake up.',
+      decisions: [
+        'The classifier is an interface with two implementations registered by name: a heuristic one that runs offline, and one that calls a model. The choice is an environment variable, and the test suite needs no API key.',
+        'The rate limit on the paid endpoint lives in the database rather than in memory, so it holds with more than one instance running. It bounds the rate, not the total spend: that ceiling is the one on the provider’s account.',
+      ],
+      stats: [{ value: '263', label: 'automated tests' }],
+      stack: [
+        'FastAPI',
+        'SQLAlchemy',
+        'Alembic',
+        'PostgreSQL',
+        'React',
+        'TanStack Query',
+        'Zod',
+        'pytest',
+        'Vitest',
+        'Docker',
+      ],
+      actions: [
+        { label: 'Try the demo', href: 'https://client-requests.vercel.app/' },
+        { label: 'See the code', href: 'https://github.com/andrea-bagnardi/client-requests' },
+      ],
+      preview: {
+        // The product itself is in Italian, so its screen is described as it reads.
+        alt: 'Client requests: the form for a new request and the list, with the category, priority and summary proposed by the model.',
+        poster: '/previews/client-requests.webp',
+        posterSmall: '/previews/client-requests-640.webp',
+      },
+    },
+    {
       name: 'Business intelligence system',
       eyebrow: 'Business intelligence project with public code',
       problem:

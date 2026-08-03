@@ -139,7 +139,7 @@ Revisione del codice e mentoring di sviluppatori junior, stime e pianificazione 
 
 ### 6.3 Progetti
 
-Due blocchi a tutta larghezza, non card affiancate. Colonna di testo con posizionamento sticky, anteprima visiva che scorre a fianco. La sezione va costruita per accogliere N progetti, non due.
+Blocchi a tutta larghezza, non card affiancate. Colonna di testo con posizionamento sticky, anteprima visiva che scorre a fianco. La sezione è costruita per accogliere N progetti: oggi sono tre, e l'ordine non è cronologico ma di peso per chi legge. Il backend pubblico sta prima del resto perché il sito dichiara il backend come competenza principale.
 
 **GuitarPath** — occhiello: prodotto in soft launch
 
@@ -149,6 +149,14 @@ Due blocchi a tutta larghezza, non card affiancate. Colonna di testo con posizio
 - Riga sul metodo, da riportare testualmente: "Realizzato interamente con Claude Code. Il codice è generato dall'agente, l'architettura, i vincoli e il controllo qualità sono miei: TypeScript in modalità strict, 440 test automatici, revisione di ogni pull request."
 - Numeri: 6 lingue, 440 test, live in produzione
 - Azioni: prova la demo, vedi il codice (il secondo solo se il repository è pubblico)
+
+**client-requests** — occhiello: codice pubblico, backend e frontend
+
+- Problema: le richieste dei clienti arrivano come testo libero, e qualcuno le legge una per una per decidere di cosa parlano e a chi passarle.
+- Soluzione: un modello propone categoria, priorità e riassunto, e chi gestisce la richiesta conferma o corregge. Va detto nella soluzione, non in una nota a parte, che la demo sta su un piano gratuito e la prima richiesta aspetta il risveglio del server: è il primo dubbio di chi clicca, e va letto prima del clic.
+- Decisioni tecniche da evidenziare: il classificatore come interfaccia con due implementazioni registrate per nome, scelte da variabile d'ambiente, di cui una euristica che gira offline e tiene la suite di test senza chiave; il limite di frequenza sull'endpoint a pagamento tenuto nel database e non in memoria, con l'ammissione che limita il ritmo e non la spesa.
+- Numeri: 263 test automatici, di cui 160 nel backend e 103 nel frontend. Sulla pagina compare solo il totale.
+- Azioni: prova la demo (`https://client-requests.vercel.app/`), vedi il codice (`https://github.com/andrea-bagnardi/client-requests`)
 
 **Sistema di business intelligence** — occhiello: progetto di business intelligence con codice pubblico
 
