@@ -20,10 +20,15 @@ stata unita il 4 agosto 2026 e il dominio è `andrea-bagnardi.is-a.dev`. Il
 vecchio `andrea-bagnardi.github.io` reindirizza qui da solo, quindi i link già
 consegnati continuano a funzionare.
 
-Se un giorno il dominio cambia ancora, due punti non si aggiornano da soli
-perché non derivano da `site` in `astro.config.mjs`: l'indirizzo della sitemap
-scritto a mano in `public/robots.txt`, e la stringa in `src/lib/share-image.ts`
-che finisce incisa come pixel dentro le due immagini di anteprima.
+Se un giorno il dominio cambia ancora, tre cose non si sistemano da sole. Due
+non derivano da `site` in `astro.config.mjs`: l'indirizzo della sitemap scritto
+a mano in `public/robots.txt`, e la stringa in `src/lib/share-image.ts` che
+finisce incisa come pixel dentro le due immagini di anteprima. La terza è che
+**il file `public/CNAME` da solo non configura niente**: con il deploy via
+GitHub Actions, Pages non lo legge per impostare il dominio. Va scritto nelle
+impostazioni del repository, a mano o con
+`gh api -X PUT repos/OWNER/REPO/pages -f cname=...`, e allo stesso modo si
+attiva `https_enforced` una volta che il certificato risulta `approved`.
 
 **Fase 9 completata.** Italiano su `/`, inglese su `/en/`. `src/data/index.ts`
 espone `getContent(locale)` e ogni componente legge `Astro.currentLocale`:
