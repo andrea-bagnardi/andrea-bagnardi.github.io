@@ -6,7 +6,7 @@ Va tenuto corto e potato quando le voci si chiudono.
 
 ## Stato delle fasi
 
-Fasi 1-7 completate e in produzione su `https://andrea-bagnardi.github.io/`.
+Tutte le fasi completate. In produzione su `https://andrea-bagnardi.is-a.dev/`.
 Lighthouse mobile, misurato il 3 agosto 2026 sul sito pubblicato. Accessibilità
 100, best practices 100 e SEO 100 sono stabili su entrambe le lingue. La
 performance no: quattro misurazioni di fila sullo stesso commit hanno dato 97,
@@ -15,20 +15,15 @@ significa niente: misurare tre volte prima di dire che qualcosa è peggiorato.
 Attenzione anche al browser: se il Chrome della macchina non è in italiano, la
 richiesta alla radice viene reindirizzata e si finisce per misurare `/en/`.
 
-**Fase 8, in attesa esterna.** La pull request al registro `is-a-dev/register`
-è aperta: numero 45788, aggiunge `domains/andrea-bagnardi.json` con un CNAME
-verso `andrea-bagnardi.github.io`. I test del registro passano.
+**Fase 8 completata.** La pull request 45788 al registro `is-a-dev/register` è
+stata unita il 4 agosto 2026 e il dominio è `andrea-bagnardi.is-a.dev`. Il
+vecchio `andrea-bagnardi.github.io` reindirizza qui da solo, quindi i link già
+consegnati continuano a funzionare.
 
-Quando viene unita, e non prima:
-
-1. creare `public/CNAME` con dentro `andrea-bagnardi.is-a.dev`
-2. cambiare `site` in `astro.config.mjs`
-3. build, commit, push
-4. dire ad Andrea di impostare il dominio in Settings → Pages e di attivare
-   *Enforce HTTPS* appena la casella diventa selezionabile
-
-Farlo prima che il DNS risolva rende il sito irraggiungibile: GitHub Pages
-inizia a reindirizzare verso un dominio che non esiste ancora.
+Se un giorno il dominio cambia ancora, due punti non si aggiornano da soli
+perché non derivano da `site` in `astro.config.mjs`: l'indirizzo della sitemap
+scritto a mano in `public/robots.txt`, e la stringa in `src/lib/share-image.ts`
+che finisce incisa come pixel dentro le due immagini di anteprima.
 
 **Fase 9 completata.** Italiano su `/`, inglese su `/en/`. `src/data/index.ts`
 espone `getContent(locale)` e ogni componente legge `Astro.currentLocale`:

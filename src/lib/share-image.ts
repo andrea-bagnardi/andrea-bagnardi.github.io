@@ -87,7 +87,7 @@ export async function renderShareImage(locale: Locale): Promise<Response> {
               fontSize: 24,
               color: palette['text-muted'],
             },
-            children: 'andrea-bagnardi.github.io',
+            children: 'andrea-bagnardi.is-a.dev',
           },
         },
       ],

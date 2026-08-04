@@ -5,8 +5,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // User site: served from the root of andrea-bagnardi.github.io, so base stays '/'.
-  site: 'https://andrea-bagnardi.github.io',
+  // Served from the root of the is-a.dev subdomain, so base stays '/'. The old
+  // andrea-bagnardi.github.io address redirects here on its own once GitHub
+  // Pages picks up public/CNAME, so links already handed out keep working.
+  site: 'https://andrea-bagnardi.is-a.dev',
   base: '/',
   output: 'static',
   // Italian keeps the root and English goes under /en: the site was written in
